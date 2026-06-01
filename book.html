@@ -1,12 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="./css/fullCalender.css" />
     <title>Book en tid</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div id="navigation"></div>
+
+    <main class="booking_container">
+      <div class="calendar_main">
+        <div id="calendar"></div>
+      </div>
+
+      <aside class="booking_sidebar">
+        <div class="book_sidebar">
+          <h1>Book et møde her</h1>
+          <h2>Så kan vi tage en snak om din idé og finde den rette løsning</h2>
+          <p>
+            Book et uforpligtende møde på min virksomheds adresse, og lad os
+            gennemgå dine ønsker og finde den rette løsning sammen. <br />
+            Mødet varer ca. 20-30 minutter og foregår fysisk.
+          </p>
+          <p>
+            Efter booking modtager du en bekræftelsesmail med alle detaljer.
+          </p>
+          <p class="bemaerk">
+            <i>Bemærk: Samme-dags booking er ikke muligt.</i>
+          </p>
+        </div>
+      </aside>
+    </main>
+
+    <div id="booking-modal" class="modal">
+      <div class="modal-content">
+        <span class="luk-knap">&times;</span>
+        <h3>Bekræft din booking</h3>
+        <p id="modal-valgt-tid"></p>
+
+
+        <form id="booking-form">
+            <input type="hidden" id="valgt-duration" value="30">
+          <div class="form-group">
+            <label for="kunde-navn">Navn:</label>
+            <input
+              type="text"
+              id="kunde-navn"
+              required
+              placeholder="Dit fulde navn"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="kunde-email">E-mail:</label>
+            <input
+              type="email"
+              id="kunde-email"
+              required
+              placeholder="din@email.dk"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="kunde-beskrivelse">Beskrivelse:</label>
+            <textarea
+              type="text"
+              id="kunde-beskrivelse"
+              placeholder="Skrive her, hvis der er noget jeg skal vide før samtalen..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="book-knap">Bekræft og book aftale</button>
+        </form>
+      </div>
+    </div>
+
+    <div id="footer"></div>
+  </body>
+
+  <script type="module" src="./js/fullCalender.js"></script>
+  <script type="module" src="./js/navigation.js"></script>
+  <script type="module" src="./js/footer.js"></script>
 </html>

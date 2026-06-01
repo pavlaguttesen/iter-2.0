@@ -22,8 +22,6 @@ a:visited {
 
 footer {
   background-color: #434651;
-  position: absolute;
-  bottom: 0;
   width: 100%;
 }
 
@@ -31,7 +29,7 @@ footer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 2rem;
-  padding: 5rem;
+  padding: 3rem 5rem 1rem 5rem;
 }
 
 .grid_en {

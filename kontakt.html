@@ -1,13 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="./css/kontakt.css" />
     <title>Kontakt</title>
-</head>
-<body>
-    
-    <script src="script.js"></script>
-</body>
+  </head>
+  <body>
+    <div id="navigation"></div>
+
+    <main class="kontakt_container">
+      <section class="kontakt_info_sektion">
+        <h1>Kontakt</h1>
+        <p>
+          Har du en idé til et møbel, en specialløsning ellet et projekt i træ,
+          er du altid velkommen til at kontakte mig.
+        </p>
+        <p>
+          Du kan enten sende en besked via kontaktformularen eller booke en
+          uforpligtende samtale direkte i min kalender. Her kan vi tale om dine
+          idéer igennem og finde den rette løsning sammen.
+        </p>
+        <p>
+          Det er helt fint, hvis du ikke har alt på plads endnu - vi starter
+          derfra, hvor du er.
+        </p>
+      </section>
+
+      <section class="kontakt_form">
+        <form id="booking_form">
+          <div class="form_group">
+            <input type="text" id="kunde-fornavn" required placeholder="Fornavn" />
+          </div>
+
+          <div class="form_group">
+            <input
+              type="text"
+              id="kunde-efternavn"
+              required
+              placeholder="Efternavn"
+            />
+          </div>
+
+          <div class="form_group">
+            <input
+              type="email"
+              id="kunde-email"
+              required
+              placeholder="Email"
+            />
+          </div>
+
+          <div class="form_group">
+            <input
+              type="tel"
+              id="kunde-tlf"
+              required
+              placeholder="Telefonnummer"
+            />
+          </div>
+
+          <div class="form_group">
+            <input
+              type="text"
+              id="kunde-besked"
+              required
+              placeholder="Besked"
+            />
+          </div>
+
+          <button type="submit" class="kontakt_button">Send besked</button>
+        </form>
+      </section>
+    </main>
+
+    <div id="footer"></div>
+  </body>
+  <script type="module" src="./js/kontakt.js"></script>
+  <script type="module" src="./js/navigation.js"></script>
+  <script type="module" src="./js/footer.js"></script>
 </html>

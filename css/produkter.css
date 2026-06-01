@@ -1,0 +1,334 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root{
+    --primary-color: #E8E3D9;
+    --secondary-color: #A59E8C;
+    --quality-color: #3D3D3D;
+    --booking-color:#F11B1B;
+    --background-color: #ffffff;
+    --primary-button-color: #2B3B2F;
+}
+
+.eget_mobel_sektion h1{
+    font-family: 'Lalezar', cursive;
+    font-size: 4rem;
+    font-weight: 400;
+    padding: 1.5rem 0;
+}
+
+.eget_mobel_sektion button{
+    background-color: var(--primary-button-color);
+    color: var(--background-color);
+    font-size: 1.25rem;
+    font-weight: 700;
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.eget_mobel_sektion{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+}
+
+.produkter_sektion{
+    background-color: var(--primary-color);
+    padding: 3rem 0;
+}
+
+.produkt_grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    padding: 1.25rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.produkt_card{
+    color: #000000;
+    display: flex;
+    flex-direction: column;
+}
+
+.produkt_card:visited{
+    color: #000000;
+}
+
+.produkt_card img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.produkt_info{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+/*Single page*/
+
+.single_produkt_container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 6rem 0 3rem 0;
+    display: flex;
+    gap: 10rem; 
+    align-items: flex-start;
+}
+
+.billede_galleri {
+    flex: 1;
+}
+
+.main_billede_wrapper {
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+#main_billede {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 0.625rem;
+}
+
+.pil{
+    position: absolute;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #000000;
+    padding: 10px;
+    z-index: 10;
+}
+
+.prev {
+    left: -3.5rem;
+}
+
+.next {
+    right: -3.5rem;
+}
+
+.thumbnails {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin-top: 1.25rem;
+    justify-content: center;
+}
+
+.thumbnail_img {
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
+    border-radius: 0.125rem;
+    transition: opacity 0.2s;
+}
+
+.thumbnail_img:hover {
+    opacity: 0.8;
+}
+
+
+.single_page_info {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+}
+
+#produkt_navn {
+    font-family: 'Lalezar', cursive;
+    font-size: 3rem;
+    color: var(--quality-color);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.pris {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--quality-color);
+    margin-bottom: 2rem;
+}
+
+.detaljer {
+    margin-bottom: 2rem;
+}
+
+.detaljer p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    color: var(--quality-color);
+}
+
+.detaljer p:last-child {
+    margin-bottom: 0; 
+}
+
+.detaljer p strong {
+    display: block;
+    padding-bottom: 0.5rem;
+}
+
+.detaljer p:last-child {
+    margin-bottom: 0; 
+}
+
+.beskrivelse {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--quality-color);
+    margin-bottom: 3rem;
+}
+
+#produkt_beskrivelse{
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--quality-color);
+    margin-bottom: 3rem;
+    white-space: pre-line;
+}
+
+.kob_knap {
+    background-color: var(--primary-button-color);
+    color: var(--background-color);
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 0.625rem;
+    padding: 0.8rem;
+    cursor: pointer;
+    margin-left: auto;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    width: 40%; 
+    text-align: center;
+}
+
+.kob_knap:hover {
+    background-color: var(--quality-color); 
+}
+
+.kob_knap:active {
+    transform: scale(0.98);
+}
+
+.kob_knap:disabled {
+    cursor: not-allowed;
+    transform: none;
+}
+
+@media (max-width: 1200px) {
+    .produkt_grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /*single page*/
+    .single_produkt_container{
+        gap: 5rem;
+        max-width: 900px;
+    }
+}
+
+@media (max-width: 769px) {
+
+    .eget_mobel_sektion{
+        padding: 5rem 2rem 2rem;
+    }
+
+    .eget_mobel_sektion h1{
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .eget_mobel_sektion button{
+        font-size: 1rem;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+    }
+    .produkt_grid{
+        grid-template-columns: 1fr;
+    }
+
+    .single_produkt_container {
+        flex-direction: column;
+        gap: 2rem;
+        margin: 2rem auto;
+    }
+
+    #main_billede {
+        height: 400px; 
+    }
+
+    #produkt_navn {
+        font-size: 2.25rem;
+    }
+
+    /*Single page*/
+
+    .single_produkt_container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        margin: 0 auto;
+        padding: 6rem 2rem 3rem;
+    }
+
+    .main_billede_wrapper {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    #main_billede {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+    }
+
+    .thumbnail_img {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .pil {
+        font-size: 1rem;
+    }
+
+    .prev {
+        left: -2.5rem;
+    }
+    
+    .next {
+        right: -2.5rem;
+    }
+
+    #produkt_navn {
+        font-size: 2.5rem;
+    }
+
+    .pris {
+        font-size: 1.5rem;
+    }   
+
+    
+}

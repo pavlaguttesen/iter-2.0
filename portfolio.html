@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="./css/portfolio.css" />
     <title>Portfolio</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <div id="navigation"></div>
+
+    <main>
+      <section class="portfolio_sektion">
+        <div class="portfolio_tekst">
+          <h1>Fra idé til færdigt håndværk</h1>
+          <p>
+            Her kan du se et udvalg af mine tidligere projekter. <br />
+            Sider giver et indblik i både møbler og større håndværksprojekter,
+            hvor fokus har været på kvalitet, materialer og godt håndværk.
+          </p>
+        </div>
+
+        <img src="./img/tubret_med_faareskin.jpeg" alt="" />
+      </section>
+
+      <div class="portfolio_container" id="portfolio_projects_container"></div>
+    </main>
+
+    <div id="footer"></div>
+  </body>
+  <script type="module" src="./js/portfolio.js"></script>
+  <script type="module" src="./js/navigation.js"></script>
+  <script type="module" src="./js/footer.js"></script>
 </html>

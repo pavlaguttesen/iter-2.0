@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="./css/produkter.css" />
+    <title>Produkt</title>
+  </head>
+  <body>
+    <div id="navigation"></div>
+
+    <main class="single_produkt_container">
+      <section class="billede_galleri">
+        <div class="main_billede_wrapper">
+          <button class="pil prev">&lt;</button>
+          <img id="main_billede" src="" alt="Produktbillede" />
+          <button class="pil next">&gt;</button>
+        </div>
+        <div class="thumbnails" id="thumbnail_container"></div>
+      </section>
+
+      <section class="single_page_info">
+        <h1 id="produkt_navn"></h1>
+        <p class="pris"><span id="produkt_pris">0</span> kr.</p>
+
+        <div class="detaljer">
+          <p>
+            <strong>Materiale:</strong>
+            <span id="produkt_materiale"></span>
+          </p>
+          <p>
+            <strong>Dimensioner:</strong>
+            <span id="produkt_dimensioner"></span>
+          </p>
+
+          <p>
+            <strong>Levering:</strong>
+            Leveres personligt eller med fragt afhængigt af adresse. <br />
+            Mulighed for afhentning efter aftale.
+          </p>
+
+          <p><strong>Lagerstatus:</strong><span id="lager_status"></span></p>
+        </div>
+
+        <p id="produkt_beskrivelse" class="beskrivelse"></p>
+
+        <button id="kob_knap" class="kob_knap">Køb nu</button>
+      </section>
+    </main>
+
+    <div id="footer"></div>
+  </body>
+
+  <script type="module" src="./js/single.js"></script>
+  <script src="./js/navigation.js"></script>
+  <script src="./js/footer.js"></script>
+</html>

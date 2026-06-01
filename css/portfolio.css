@@ -1,0 +1,267 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "inter", sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+:root {
+  --primary-color: #e8e3d9;
+  --secondary-color: #a59e8c;
+  --quality-color: #3d3d3d;
+  --booking-color: #f11b1b;
+  --light-color: #ffffff;
+  --dark-color: #000000;
+  --primary-button-color: #2b3b2f;
+}
+
+.portfolio_container {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  margin: 0 auto;
+  max-width: 1000px;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.portfolio_sektion {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  background-color: var(--primary-color);
+  justify-content: space-between;
+  width: 100%;
+  padding-top: 4.5rem;
+}
+
+.portfolio_sektion h1 {
+  font-family: "Lalezar", cursive;
+  font-size: 2.75rem;
+  font-weight: 400;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--quality-color);
+  margin-bottom: 2rem;
+}
+
+.portfolio_sektion p {
+  font-size: 1rem;
+  line-height: 1.5;
+  margin-bottom: 1.5rem;
+  color: var(--quality-color);
+}
+
+.portfolio_sektion img {
+  width: 300px;
+  height: auto;
+  object-fit: cover;
+}
+
+.portfolio_tekst {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.projekt_artikel {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/*Bento grid*/
+
+.bento_galleri {
+  display: grid;
+  gap: 1rem;
+  width: 100%;
+  height: 600px;
+  grid-auto-rows: 1fr;
+}
+
+.bento_galleri img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  border-radius: 0.625rem;
+}
+
+/*Fem billeder*/
+.bento_galleri.billede_antal_5 {
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.bento_galleri.billede_antal_5 .bento_main {
+  grid-column: 1;
+  grid-row: span 2;
+}
+
+.bento_galleri.billede_antal_5 .bento_sub_1 {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.bento_galleri.billede_antal_5 .bento_sub_2 {
+  grid-column: 3;
+  grid-row: 1;
+}
+
+.bento_galleri.billede_antal_5 .bento_sub_3 {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.bento_galleri.billede_antal_5 .bento_sub_4 {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+/*Fire billeder*/
+.bento_galleri.billede_antal_4 {
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.bento_galleri.billede_antal_4 .bento_main {
+  grid-column: 1;
+  grid-row: span 2;
+}
+
+/*Tre billeder*/
+.bento_galleri.billede_antal_3 {
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.bento_galleri.billede_antal_3 .bento_main {
+  grid-row: span 2;
+}
+
+.bento_galleri.billede_antal_3 .bento_sub_1 {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.bento_galleri.billede_antal_3 .bento_sub_2 {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+/*To billeder*/
+.bento_galleri.billede_antal_2 {
+  grid-template-columns: 1fr 1fr;
+}
+
+/*Et billede*/
+.bento_galleri.billede_antal_1 {
+  grid-template-columns: 1fr;
+}
+
+/*Info tekst*/
+
+.projekt_info {
+  color: var(--quality-color);
+  margin-bottom: 1rem;
+}
+
+.projekt_info h2 {
+  font-family: "Lalezar", cursive;
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.projekt_beskrivelse {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--dark-color);
+  max-width: 800px;
+  white-space: pre-line;
+}
+
+@media (max-width: 769px) {
+  .portfolio_container {
+    padding: 3rem 1rem;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .projekt_artikel {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .portfolio_sektion {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 7rem 1rem 2rem;
+  }
+
+  .portfolio_sektion h1 {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .portfolio_sektion p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  .portfolio_tekst {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 300px;
+  }
+
+  .portfolio_sektion img {
+    display: none;
+  }
+  .bento_galleri {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    min-height: unset;
+    gap: 1rem;
+    padding: 0;
+    width: 100%;
+    order: 2;
+  }
+
+  .bento_galleri img,
+  .bento_galleri .bento_main {
+    display: block;
+    height: 450px;
+    max-width: 100%;
+    width: 100%;
+    grid-column: unset;
+    grid-row: unset;
+    object-fit: cover;
+  }
+
+  .projekt_info {
+    order: 1;
+  }
+
+  .projekt_info h2 {
+    font-size: 2rem;
+  }
+}

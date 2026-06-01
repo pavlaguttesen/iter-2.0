@@ -1,0 +1,298 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "inter", sans-serif;
+  text-decoration: none;
+  list-style: none;
+}
+
+:root {
+  --primary-color: #e8e3d9;
+  --secondary-color: #a59e8c;
+  --quality-color: #3d3d3d;
+  --booking-color: #f11b1b;
+  --background-color: #ffffff;
+  --primary-button-color: #2b3b2f;
+  --dark-color: #000000;
+  --light-color: #ffffff;
+}
+
+.design_mobel_sektion {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 6rem 2rem 3rem;
+}
+
+.design_mobel_sektion h1 {
+  font-family: "Lalezar", cursive;
+  font-size: 2.75rem;
+  font-weight: 400;
+  padding: 1.5rem 0 1rem;
+  text-transform: uppercase;
+  color: var(--quality-color);
+  line-height: 1;
+}
+
+.design_mobel_sektion p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--dark-color);
+  max-width: 750;
+}
+
+.design_form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  background-color: var(--primary-color);
+  padding: 2rem;
+  margin: 0 auto;
+  border-radius: 0.625rem;
+  width: 950px;
+  justify-content: center;
+}
+
+.required {
+  color: var(--booking-color);
+}
+
+.form_gruppe {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.valg_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3rem;
+  align-items: center;
+}
+
+.valg_kort input[type="radio"] {
+  display: none;
+}
+
+.ikon_label {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.1rem;
+  cursor: pointer;
+  background-color: transparent;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  padding: 0.25rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.ikon_label img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+}
+
+.ikon_label span {
+  font-size: 0.7rem;
+  color: var(--quality-color);
+}
+
+.ikon_label:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.valg_kort input[type="radio"]:checked + .ikon_label img {
+  background-color: var(--secondary-color);
+  padding: 0.3rem;
+  border-radius: 50%;
+  transform: scale(1.1);
+}
+
+.valg_kort input[type="radio"]:checked + .ikon_label span {
+  color: var(--dark-color);
+  font-size: 500;
+}
+
+.andet_felt input {
+  background-color: var(--light-color);
+  border: none;
+  border-radius: 0.425rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  width: 180px;
+  color: var(--dark-color);
+}
+
+.fuld_bredde{
+    gap: 6rem;
+}
+
+textarea {
+  width: 100%;
+  height: 180px;
+  background-color: var(--light-color);
+  border: none;
+  border-radius: 0.425rem;
+  padding: 1rem;
+  font-size: 1rem;
+  color: var(--dark-color);
+  resize: none;
+}
+
+.info_sektion .main_label{
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+}
+
+.info_grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+#custom_firstname,
+#custom_lastname {
+  grid-column: span 2;
+}
+
+#custom_email,
+#custom_tlf {
+  grid-column: span 2;
+}
+
+#custom_adresse {
+  grid-column: span 2;
+}
+
+#custom_postal{
+  grid-column: span 1;
+}
+
+#custom_city {
+  grid-column: span 1;
+}
+
+.info_grid input[type="text"],
+.info_grid input[type="email"],
+.info_grid input[type="tel"]{
+  width: 100%;
+  background-color: var(--light-color);
+  border: none;
+  border-radius: 0.425rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  color: var(--dark-color);
+}
+
+::placeholder {
+  color: var(--quality-color);
+  opacity: 0.5;
+}
+
+.design_knap {
+  display: flex;
+  margin-top: 0.5rem;
+}
+
+.bestil_knap {
+  background-color: var(--primary-button-color);
+  color: var(--light-color);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.09rem;
+  border-radius: 0.425rem;
+  margin-left: auto;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  padding: 0.5rem 2rem;
+}
+
+.hjaelp_tekst {
+    max-width: 950px;
+  text-align: left;
+  margin: 1rem auto 3rem;
+  font: 0.9rem;
+  color: var(--quality-color);
+}
+
+.hjaelp_tekst a {
+  cursor: pointer;
+}
+
+.hjaelp_tekst a:hover {
+  text-decoration: underline;
+  color: var(--quality-color);
+}
+
+.hjaelp_tekst a:visited{
+    color: var(--dark-color);
+}
+
+/*Mobil*/
+
+@media (max-width: 769px) {
+
+    .design_mobel_sektion {
+        padding: 6rem 2rem 2rem;
+    }
+
+    .design_mobel_sektion h1 {
+        font-size: 2.4rem;
+    }
+  .design_form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem!important;
+    margin: 0 auto;
+    width: 95%;
+    max-width: 100%;
+    gap: 2rem;
+
+  }
+
+  .form_gruppe {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .fuld_bredde{
+    gap: 0.8rem;
+  }
+
+  .valg_container {
+    gap: 1.5rem;
+  }
+
+  .info_grid {
+    grid-template-columns: 1fr;
+  }
+
+  #custom_firstname,
+  #custom_lastname,
+  #custom_email,
+  #custom_tlf,
+  #custom_adresse,
+  #custom_postal,
+  #custom_city {
+    grid-column: span 1;
+  }
+
+  .design_knap {
+    justify-content: center;
+  }
+
+  .hjaelp_tekst {
+    padding: 1rem 3rem 3rem 1rem; 
+    margin: 0;
+  }
+
+  .hjaelp_tekst,
+  .hjaelp_tekst a {
+    font-size: 0.8rem;
+  }
+}

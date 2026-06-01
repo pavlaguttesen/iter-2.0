@@ -1,24 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./img/logo.svg" />
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/navigation.css" />
+    <link rel="stylesheet" href="./css/footer.css" />
     <title>Iter</title>
-</head>
-<body>
-    <header id="navigation"></header>
+  </head>
+  <body>
+    <div id="navigation"></div>
     <main>
-        <div class="hero"></div>
+      <div class="hero">
+        <h1>iter.</h1>
+        <p>Fra idé til færdigt håndværk</p>
+      </div>
 
-        <section class="start_din_rejse_sektion"></section>
-        <section class="porfolio_section"></section>
-        <section class="design_sektion"></section>
-        <section class="produkter_sektion"></section>
-        <section class="anmeldelser_sektion"></section>
+      <section class="start_din_rejse_sektion">
+        <div class="rejse_sektion_venstre">
+          <img src="./img/stol_01.jpg" alt="" />
+          <img src="./img/stol_01_siden.jpg" alt="" />
+        </div>
+        <div class="rejse_sektion_hojre">
+          <h2>Start din rejse i træ</h2>
+          <p>
+            Hos Iter bliver der skabt speciallavede møbler og unikke løsninger i
+            træ, hvor kvalitet, design og håndværk går hånd i hånd. Fra idé til
+            færdigt resultat skaber jeg møbler tilpasset dit hjem.
+          </p>
+          <a href="design_mobel.html"><button>Design dit møbel</button></a>
+          <p><strong>Design dit drømmemøbel trin for trin</strong></p>
+
+          <div class="er_du_i_tvivl_rejse">
+            <p><strong>Er du i tvivl?</strong></p>
+            <p>
+              Hvis du ikke helt ved, hvad du leder efter, kan du stadig komme i
+              gang. Book en uforpligtende samtale i min kalender, eller kontakt
+              mig via kontaktformularen, så finder vi den rette løsning sammen.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="portfolio_sektion">
+        <div class="portfolio_sektion_venstre">
+          <img id="portfolio_billede_baggrund" src="./img/terasse_langt.jpg" alt="" />
+          <img id="portfolio_billede_forgrund" src="./img/tubret_med_faareskin.jpeg" alt="" />
+        </div>
+        <div class="portfolio_sektion_hojre">
+          <h3>Møbler og løsninger skabt til dit hjem</h3>
+          <p>
+            Jeg arbejder med både møbelsnedkeri og tømrerarbejde, hvilket gør
+            det muligt at skabe helhedsløsninger - Fra unikke møbler til større
+            konstruktioner i og omkring dit hjem. Hvert projekt starter med en
+            idé og udvikler sig gennem en tæt dialog, hvor materialer, funktion
+            og design bliver tilpasset dig.
+          </p>
+        </div>
+      </section>
+      <section class="design_sektion">
+        <div class="design_sektion_venstre">
+          <div class="h2_h5">
+            <div class="iter_h2">
+              <h2 class="iter_h2_01">it</h2>
+              <h2 class="iter_h2_02">er.</h2>
+            </div>
+            <h5><em>Møbelsnedker</em></h5>
+          </div>
+
+          <img src="./img/taburet.jpeg" alt="" />
+        </div>
+        <div class="design_sektion_hojre">
+          <h3>Design dit møbel</h3>
+          <p>
+            Her kan du selv være med til at forme dit møbel. Du vælger træsort,
+            udtryk og funktion, og jeg hjælper med at omsætte dine valg til et
+            færdigt stykke håndværk.
+          </p>
+          <a href="design_mobel.html"><button>Byg dit møbel</button></a>
+
+          <div class="er_du_i_tvivl_design">
+            <p><strong>Er du i tvivl?</strong></p>
+            <p>
+              Hvis du ikke helt ved, hvad du leder efter, kan du stadig komme i
+              gang. Du kan booke en uforpligtende samtale i min kalender eller
+              kontakte mig direkte via kontaktformularen. Her finder vi sammen
+              frem til den rette løsning.
+            </p>
+          </div>
+        </div>
+      </section>
+      <section class="produkter_sektion">
+        <div class="produkter_sektion_venstre">
+          <h3>Håndværk med retning</h3>
+          <p>
+            Hos Iter handler det ikke kun om at bygge møbler, men om at skabe en
+            proces hvor dine idéer bliver til noget fysisk og personligt. <br> Hvert
+            projekt er en rejse fra tanke til virkelighed hvor design,
+            materialer og håndværk arbejder sammen for at skabe et færdigt
+            resultat med kvalitet og funktion i fokus. <br> <br> Udover speciallavede
+            møbler tilbyder jeg også andre produkter, som kan købes direkte her
+            på hjemmesiden. Disse produkter er skabt med samme fokus på
+            kvalitet, materialer og håndværk, men er klar til brug uden
+            tilpasning.
+          </p>
+          <a href="produkter.html"><button>Se produkter</button></a>
+        </div>
+        <div class="produkter_sektion_hojre">
+          <img src="./img/reol.png" alt="" />
+          <div class="kvalitet_h2">
+            <h2 class="kvalitet_h2_01">Kvali</h2>
+            <h2 class="kvalitet_h2_02">tet.</h2>
+          </div>
+        </div>
+      </section>
+      <section class="anmeldelser_sektion">
+        <h2>Trustpilot, mangler adgang. Snedkeren var ikke i til stede og skal kontakte ham</h2>
+      </section>
     </main>
-    
-    <script type="module" src="script.js"></script>
-</body>
+
+    <div id="footer"></div>
+  </body>
+  <script type="module" src="./js/navigation.js"></script>
+  <script type="module" src="./js/footer.js"></script>
 </html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="stylesheet" href="./css/design_mobel.css" />
+    <title>Design dit møbel</title>
+  </head>
+  <body>
+    <div id="navigation"></div>
+
+    <section class="design_mobel_sektion">
+      <h1>Bestil et speciallavet møbel</h1>
+      <p>
+        <strong
+          >Skab et møbel, der er tilpasset til dine behov og dit rum</strong
+        >
+      </p>
+      <p>
+        Vælg materialer og detaljer til dit møbel, så fører jeg idéen videre til
+        et færdigt håndlavet møbel
+      </p>
+    </section>
+
+    <form id="custom_order_form" class="design_form">
+      <div class="form_gruppe">
+        <label class="main_label"
+          >Valg af møbel <span class="required">*</span></label
+        >
+        <div class="valg_container">
+          <div class="valg_kort">
+            <input
+              type="radio"
+              id="mobel_stol"
+              name="furniture_type"
+              value="Stol"
+              required
+            />
+            <label for="mobel_stol" class="ikon_label">
+              <img src="./img/stol.svg" alt="Stol" />
+              <span>Stol</span>
+            </label>
+          </div>
+
+          <div class="valg_kort">
+            <input
+              type="radio"
+              id="mobel_seng"
+              name="furniture_type"
+              value="Seng"
+            />
+            <label for="mobel_seng" class="ikon_label">
+              <img src="./img/seng.svg" alt="Seng" />
+              <span>Seng</span>
+            </label>
+          </div>
+
+          <div class="valg_kort">
+            <input
+              type="radio"
+              id="mobel_bord"
+              name="furniture_type"
+              value="Bord"
+            />
+            <label for="mobel_bord" class="ikon_label">
+              <img src="./img/bord.svg" alt="Bord" />
+              <span>Bord</span>
+            </label>
+          </div>
+
+          <div class="valg_kort">
+            <input
+              type="radio"
+              id="mobel_reol"
+              name="furniture_type"
+              value="Reol"
+            />
+            <label for="mobel_reol" class="ikon_label">
+              <img src="./img/reol.svg" alt="Reol" />
+              <span>Reol</span>
+            </label>
+          </div>
+
+          <div class="valg_kort">
+            <input
+              type="radio"
+              id="mobel_skab"
+              name="furniture_type"
+              value="Skab"
+            />
+            <label for="mobel_skab" class="ikon_label">
+              <img src="./img/skab.svg" alt="Skab" />
+              <span>Skab</span>
+            </label>
+          </div>
+
+          <div class="andet_felt">
+            <input
+              type="text"
+              name="mobel_andet"
+              id="mobel_andet"
+              placeholder="Andet"
+            />
+          </div>
+        </div>
+      </div>
+
+      <div class="form_gruppe">
+        <label class="main_label"
+          >Valg af træsort <span class="required">*</span></label
+        >
+        <div class="valg_container">
+          <div class="valg_kort">
+            <input
+              type="radio"
+              id="trae_valnod"
+              name="tree_type"
+              value="Valnød"
+              required
+            />
+            <label for="trae_valnod" class="ikon_label"
+              ><img src="./img/valnod.svg" alt="Valnød" />
+              <span>Valnød</span></label
+            >
+          </div>
+
+          <div class="valg_kort">
+            <input type="radio" id="trae_eg" name="tree_type" value="Eg" />
+            <label for="trae_eg" class="ikon_label"
+              ><img src="./img/eg.svg" alt="Eg" /> <span>Eg</span></label
+            >
+          </div>
+
+          <div class="valg_kort">
+            <input type="radio" id="trae_ask" name="tree_type" value="Ask" />
+            <label for="trae_ask" class="ikon_label"
+              ><img src="./img/ask.svg" alt="Ask" /> <span>Ask</span></label
+            >
+          </div>
+
+          <div class="valg_kort">
+            <input type="radio" id="trae_Bog" name="tree_type" value="Bøg" />
+            <label for="trae_bog" class="ikon_label"
+              ><img src="./img/bog.svg" alt="bøg" /> <span>Bøg</span></label
+            >
+          </div>
+
+          <div class="valg_kort">
+            <input
+              type="radio"
+              id="trae_ahorn"
+              name="tree_type"
+              value="Ahorn"
+            />
+            <label for="trae_ahorn" class="ikon_label"
+              ><img src="./img/ahorn.svg" alt="ahorn" />
+              <span>Ahorn</span></label
+            >
+          </div>
+        </div>
+      </div>
+
+      <div class="form_gruppe fuld_bredde">
+        <label for="onsker_tekst" class="main_label">Ønsker</label>
+        <textarea
+          name="onsker_tekst"
+          id="onsker_tekst"
+          placeholder="Beskriv dine ønsker"
+        ></textarea>
+      </div>
+
+      <div class="info_sektion">
+        <p class="main_label">Kundeoplysninger</p>
+        <div class="info_grid">
+          <input
+            type="text"
+            id="custom_firstname"
+            name="custom_firstname"
+            placeholder="Fornavn"
+            required
+          />
+          <input
+            type="text"
+            id="custom_lastname"
+            name="custom_lastname"
+            placeholder="Efternavn"
+            required
+          />
+          <input
+            type="email"
+            id="custom_email"
+            name="custom_email"
+            placeholder="E-mail"
+            required
+          />
+          <input
+            type="tel"
+            id="custom_tlf"
+            name="custom_tlf"
+            placeholder="Telefonnummer"
+          />
+          <input
+            type="text"
+            id="custom_adresse"
+            name="custom_adresse"
+            placeholder="Adresse"
+          />
+
+          <input
+            type="text"
+            id="custom_postal"
+            name="custom_postal"
+            placeholder="Postnummer"
+          />
+          <input
+            type="text"
+            id="custom_city"
+            name="custom_city"
+            placeholder="By"
+          />
+        </div>
+      </div>
+
+      <div class="design_button">
+        <button type="submit" class="bestil_knap">Bestil</button>
+      </div>
+    </form>
+
+    <p class="hjaelp_tekst">
+      Er du i tvivl, hjælper jeg dig gerne.
+      <a href="book.html"><strong>Book et møde</strong></a> eller kontakt mig på
+      email.
+    </p>
+
+    <div id="footer"></div>
+  </body>
+
+  <script type="module" src="./js/design_mobel.js"></script>
+  <script type="module" src="./js/navigation.js"></script>
+  <script type="module" src="./js/footer.js"></script>
+</html>
