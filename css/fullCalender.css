@@ -236,6 +236,27 @@
     background-color: var(--quality-color);
 }
 
+/*Succes Modal*/
+#modal-succes-indhold{
+    display: none;
+    text-align: center;
+    padding: 2rem 0;
+}
+
+#modal-succes-indhold h3{
+    font-size: 2rem;
+    color: var(--quality-color);
+    font-family: 'Lalezar', 'inter', sans-serif;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+#modal-succes-indhold p{
+    color: var(--dark-color);
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
 /* Responsivt */
 
 @media (max-width: 769px) {
