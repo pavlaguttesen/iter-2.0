@@ -78,14 +78,23 @@
   background-color: transparent;
 }
 
+.fc .fc-button-group{
+    gap: 0.5rem;
+}
+
+.fc-toolbar-chunk{
+    margin-left: 3rem;
+}
+
 .fc .fc-button-primary {
   background-color: var(--primary-button-color);
   border: none;
   color: var(--light-color);
   border-radius: 0.25rem;
   font-weight: 600;
-  padding: 0.5rem 1rem;
+  padding: 0.2rem 0.75rem;
   cursor: pointer;
+  font-size: 0.875rem;
 }
 
 .fc .fc-button-primary:hover {

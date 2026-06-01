@@ -57,8 +57,8 @@ document.addEventListener("DOMContentLoaded", function () {
     },
     events: async function(fetchInfo, successCallback, failureCallback) {
         try {
-            const bookings = await hentBookingerFraSupabase();
-            successCallback(bookings);
+            const booking = await hentBookingerFraSupabase();
+            successCallback(booking);
         } catch (error) {
             failureCallback(error);
         }
@@ -85,11 +85,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function setupModalEvents(calendar) {
     const modal = document.querySelector('#booking-modal');
-    const closeBtn = document.querySelector('.close-btn');
+    const lukKnap = document.querySelector('.luk-knap');
     const form = document.querySelector('#booking-form');
 
-    if (closeBtn) {
-        closeBtn.addEventListener('click', () => modal.style.display = 'none');
+    if (lukKnap) {
+        lukKnap.addEventListener('click', () => modal.style.display = 'none');
     }
  
     window.addEventListener('click', (e) => {
@@ -106,8 +106,11 @@ function setupModalEvents(calendar) {
             const duration = parseInt(document.querySelector('#valgt-duration').value);
             const beskrivelse = document.querySelector('#kunde-beskrivelse').value;
 
-            const succes = await opretBookingSupabase(navn, email, gemtDatoStreng, duration, beskrivelse);
-            
+            const navneDele = navn.split(" ");
+        const fornavn = navneDele[0];
+        const efternavn = navneDele.slice(1).join(" ") || "";
+
+        const succes = await opretBookingSupabase(fornavn, efternavn, email, gemtDatoStreng, duration, beskrivelse);
             if (succes) {
                 modal.style.display = 'none'; 
                 form.reset(); 
@@ -118,7 +121,7 @@ function setupModalEvents(calendar) {
 }
 
 async function hentBookingerFraSupabase(){
-    const { data, error } = await _supabase.from('bookings').select('start_time, duration');
+    const { data, error } = await _supabase.from('booking').select('start_time, duration');
     if (error) {
         console.log('Der skete en fejl:', error.message);
         return [];
@@ -135,14 +138,14 @@ async function hentBookingerFraSupabase(){
     });
 }
 
-async function opretBookingSupabase(navn, email, startTid, valgtDuration, beskrivelse) {
-    const { data, error } = await _supabase.from('bookings').insert([{
-        customer_name: navn,
-        customer_email: email,
+async function opretBookingSupabase(fornavn, efternavn, email, startTid, valgtDuration, beskrivelse) {
+    const { data, error } = await _supabase.from('booking').insert([{
+        book_firstname: fornavn,
+        book_lastname: efternavn,
+        book_email: email,
         start_time: startTid,
         duration: valgtDuration,
-        description: beskrivelse,
-        time_slot: 'Møde'
+        description: beskrivelse
     }]);
 
     if (error) {
@@ -150,7 +153,7 @@ async function opretBookingSupabase(navn, email, startTid, valgtDuration, beskri
         alert('Der skete en fejl under bookingen - prøv venligst igen.');
         return false;
     } else {
-        alert(`Tak ${navn}. Mødet er registreret!`);
+        alert(`Tak ${fornavn + ' ' + efternavn}. Mødet er registreret!`);
         return true;
     }
 }
