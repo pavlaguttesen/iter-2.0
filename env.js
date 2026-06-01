@@ -1,0 +1,3 @@
+export const supabaseUrl='https://yepvawsdjzexrieitjvu.supabase.co'
+export const supabaseKey='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InllcHZhd3NkanpleHJpZWl0anZ1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzY3NDM4NDYsImV4cCI6MjA5MjMxOTg0Nn0.pl9IRZWOeOP24pCXoBgTU24vwJGnb8vypSgjLz-dKyE'
+
