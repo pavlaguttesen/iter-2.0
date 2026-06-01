@@ -101,7 +101,7 @@
 
 .fc td,
 .fc th {
-  border-color: var(--primary-color);
+  border-color: var(--quality-color);
 }
 
 .fc .fc-col-header-cell {

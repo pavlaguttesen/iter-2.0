@@ -17,6 +17,7 @@ async function hentProdukter() {
   console.log("Hvad gemmer sig bag dette?:", produkter);
 
   const container = document.getElementById("produkt_container");
+
   container.innerHTML = "";
 
   produkter.forEach(produkt => {
