@@ -29,8 +29,8 @@ document.addEventListener("DOMContentLoaded", function () {
       month: "Måned",
       week: "Uge",
       day: "Dag",
-      prev: "Forrige",
-      next: "Næste",
+      prev: "Forrige uge",
+      next: "Næste uge",
     },
 
     selectAllow: function (selectInfo) {

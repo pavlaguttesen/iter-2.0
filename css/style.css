@@ -561,6 +561,11 @@ h3 {
     margin: 1rem 0 1.25rem;
   }
 
+  .portfolio_sektion_hojre p {
+    font-size: 1rem;
+    width: 100%;
+  }
+
   .design_sektion {
     flex-direction: column;
     gap: 1rem;
@@ -574,7 +579,6 @@ h3 {
   .design_sektion_venstre img {
     width: 100%;
     height: auto;
-    max-width: 400px;
   }
 
   .h2_h5 {
@@ -602,7 +606,7 @@ h3 {
     margin: 0;
   }
 
-  .produkter_sektion_venstre img {
+  .produkter_sektion_hojre img {
     width: 100%;
     height: auto;
     max-width: 400px;
