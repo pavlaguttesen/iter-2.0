@@ -199,8 +199,7 @@ function setupModalEvents(calendar) {
         document.querySelector("modal-succes-indhold").style.display = "block";
 
         valgForDato(gemtDatoStreng);
-      }
-      0.4;
+      }4000;
     });
   }
 }
