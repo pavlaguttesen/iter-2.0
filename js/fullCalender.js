@@ -73,11 +73,14 @@ async function valgForDato(datoStreng) {
 
   const { data: optagetMøder, error: tjekFejl } = await _supabase
     .from("booking")
-    .select("start_time")
-    .eq("start_time", `${datoStreng}%`);
+    .select("start_time");
 
   const optagetKlokkeslaet = optagetMøder
-    ? optagetMøder.map((møde) => møde.start_time.split("T")[1].substring(0, 5))
+    ? optagetMøder
+        .filter(
+          (møde) => møde.start_time && møde.start_time.startsWith(datoStreng)
+        )
+        .map((møde) => møde.start_time.split("T")[1].substring(0, 5))
     : [];
 
   const standardTid = [
@@ -150,7 +153,7 @@ function setupModalEvents(calendar) {
 
       const valgtTidspunkt = document.querySelector("#valgt-klokkeslaet").value;
 
-      if (valgtTidspunkt === "optaget") {
+      if (valgtTidspunkt === "Optaget" || valgtTidspunkt === "Optaget") {
         alert("Vælg venligst et ledigt tidspunkt");
         return;
       }
@@ -183,11 +186,6 @@ function setupModalEvents(calendar) {
         };
 
         emailjs
-          .send("service_snedker", "template_gjotpg9", emailParametre)
-          .then(() => console.log("Bekræftelse er sendt til kunden"))
-          .catch((fejl) => console.log("Der skete en fejl i kundmail:", fejl));
-
-        emailjs
           .send("service_snedker", "template_w2ok64w", emailParametre)
           .then(() => console.log("Notifikation er sendt til admin"))
           .catch((fejl) => console.log("Der skete en fejl i adminmail:", fejl));
@@ -196,15 +194,16 @@ function setupModalEvents(calendar) {
         document.querySelector(
           "#succes-hilsen"
         ).innerText = `Tak ${fornavn}. Du modtager om et øjeblik en bekræftelsesmail`;
-        document.querySelector("modal-succes-indhold").style.display = "block";
+        document.querySelector("#modal-succes-indhold").style.display = "block";
 
         form.reset();
         calendar.refetchEvents();
 
         setTimeout(() => {
           modal.style.display = "none";
-          document.querySelector("modal-form-indhold").style.display = "block";
-          document.querySelector("modal-succes-indhold").style.display = "none";
+          document.querySelector("#modal-form-indhold").style.display = "block";
+          document.querySelector("#modal-succes-indhold").style.display =
+            "none";
 
           valgForDato(gemtDatoStreng);
         }, 4000);
