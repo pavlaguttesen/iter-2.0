@@ -198,8 +198,17 @@ function setupModalEvents(calendar) {
         ).innerText = `Tak ${fornavn}. Du modtager om et øjeblik en bekræftelsesmail`;
         document.querySelector("modal-succes-indhold").style.display = "block";
 
-        valgForDato(gemtDatoStreng);
-      }4000;
+        form.reset();
+        calendar.refetchEvents();
+
+        setTimeout(() => {
+          modal.style.display = "none";
+          document.querySelector("modal-form-indhold").style.display = "block";
+          document.querySelector("modal-succes-indhold").style.display = "none";
+
+          valgForDato(gemtDatoStreng);
+        }, 4000);
+      }
     });
   }
 }
