@@ -17,7 +17,7 @@
 }
 
 .eget_mobel_sektion h1{
-    font-family: 'Lalezar', cursive;
+    font-family: "Lalezar", 'inter', sans-serif;
     font-size: 4rem;
     font-weight: 400;
     padding: 1.5rem 0;
@@ -153,7 +153,7 @@
 }
 
 #produkt_navn {
-    font-family: 'Lalezar', cursive;
+    font-family: "Lalezar", 'inter', sans-serif;
     font-size: 3rem;
     color: var(--quality-color);
     margin-bottom: 0.5rem;

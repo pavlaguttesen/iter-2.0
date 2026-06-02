@@ -9,28 +9,23 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!calendarEl) return;
 
   const calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: "timeGridWeek",
+    initialView: "dayGridMonth",
     weekends: false,
     firstDay: 1,
-
-    slotMinTime: "09:00:00",
-    slotMaxTime: "16:00:00",
-    slotDuration: "00:30:00",
-
     locale: "da",
-    allDaySlot: false,
+
     headerToolbar: {
       left: "prev,next today",
       center: "title",
       right: "",
     },
     buttonText: {
-      today: "idag",
+      today: "Denne måned",
       month: "Måned",
       week: "Uge",
       day: "Dag",
-      prev: "Forrige uge",
-      next: "Næste uge",
+      prev: "Forrige måned",
+      next: "Næste måned"
     },
 
     selectAllow: function (selectInfo) {
@@ -41,19 +36,10 @@ document.addEventListener("DOMContentLoaded", function () {
       return selectInfo.start >= iDag;
     },
 
-    slotLabelFormat: {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-    },
-    eventTimeFormat: {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-    },
     selectable: true,
+    
     select: function (info) {
-      gemValgtTid(info.startStr);
+      valgForDato(info.startStr);
     },
     events: async function (fetchInfo, successCallback, failureCallback) {
       try {
@@ -71,7 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 // Modal
 
-function gemValgtTid(datoStreng) {
+async function valgForDato(datoStreng) {
   gemtDatoStreng = datoStreng;
 
   const dato = new Date(datoStreng);
@@ -80,14 +66,35 @@ function gemValgtTid(datoStreng) {
     day: "numeric",
     month: "long",
   });
-  const pænTid = dato.toLocaleTimeString("da-DK", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+
+  const {data: optagetMøder, error: tjekFejl} = await _supabase
+  .from("booking")
+  .select("start_time")
+  .eq("start_time", `${datoStreng}%`);
+
+  const optagetKlokkeslaet = optagetMøder ? optagetMøder.map(møde => møde.start_time.split("T")[1].substring(0, 5)) : [];
+
+  standardTid.forEach(tid => {
+    if (optagetKlokkeslaet.includes(tid)) {
+      return;
+    }
+  })
 
   document.querySelector(
     "#modal-valgt-tid"
-  ).innerText = `Valgt tid: ${pænDato} kl. ${pænTid}`;
+  ).innerText = `Valgt tid: ${pænDato}`;
+
+  const standardTid = ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00"];
+  const selectElement = document.querySelector("#valgt-klokkeslaet");
+  selectElement.innerHTML = "";
+
+  standardTid.forEach(tid => {
+    const option = document.createElement("option");
+    option.value = tid;
+    option.text = `Kl. ${tid}`;
+    selectElement.appendChild(option);
+  });
+  
   document.querySelector("#booking-modal").style.display = "flex";
 }
 
@@ -111,19 +118,28 @@ function setupModalEvents(calendar) {
         e.preventDefault();
         const navn = document.querySelector("#kunde-navn").value.trim();
         const email = document.querySelector("#kunde-email").value;
-        const duration = parseInt(document.querySelector("#valgt-duration").value);
+        const duration = 30;
         const beskrivelse = document.querySelector("#kunde-beskrivelse").value;
   
         const navneDele = navn.split(" ");
         const fornavn = navneDele[0];
         const efternavn = navneDele.slice(1).join(" ") || "";
+
+        const valgtTidspunkt = document.querySelector("#valgt-klokkeslaet").value;
+
+        if (valgtTidspunkt === "optager") {
+          alert("Vælg venligst et ledigt tidspunkt");
+          return;
+        }
+
+        const fuldDatoTid = `${gemtDatoStreng}T${valgtTidspunkt}:00`; 
   
         
         const succes = await opretBookingSupabase(
           fornavn,
           efternavn,
           email,
-          gemtDatoStreng,
+          fuldDatoTid,
           duration,
           beskrivelse
         );
@@ -140,10 +156,11 @@ function setupModalEvents(calendar) {
   
           setTimeout(() => {
               modal.style.display = 'none';
-              
               document.querySelector('#modal-form-indhold').style.display = 'block';
               document.querySelector('#modal-succes-indhold').style.display = 'none';
-          }, 6000);
+
+              valgForDato(gemtDatoStreng);
+          }, 5000);
         }
       });
     }
@@ -152,19 +169,19 @@ function setupModalEvents(calendar) {
   async function hentBookingerFraSupabase() {
     const { data, error } = await _supabase
       .from("booking")
-      .select("start_time, duration");
+      .select("start_time");
     if (error) {
       console.log("Der skete en fejl:", error.message);
       return [];
     }
     return data.map((booking) => {
-      const startDato = new Date(booking.start_time);
-      const slutDato = new Date(startDato.getTime() + booking.duration * 60000);
+        const kunDato = booking.start_time.split("T")[0];
       return {
-        title: "Optaget",
-        start: booking.start_time,
-        end: slutDato.toISOString(),
+        title: "Booket",
+        start: kunDato,
+        allDay: true,
         display: "background",
+        color: "#ffcccc",
       };
     });
   }

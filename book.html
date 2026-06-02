@@ -44,7 +44,11 @@
           <p id="modal-valgt-tid"></p>
 
           <form id="booking-form">
-            <input type="hidden" id="valgt-duration" value="30" />
+            <div class="form-group">
+              <label for="valgt-klokkeslaet">Vælg et ledigt tidspunkt:</label>
+              <select id="valgt-klokkeslaet" required></select>
+            </div>
+
             <div class="form-group">
               <label for="kunde-navn">Navn:</label>
               <input
@@ -68,6 +72,7 @@
             <div class="form-group">
               <label for="kunde-beskrivelse">Beskrivelse:</label>
               <textarea
+                required
                 id="kunde-beskrivelse"
                 placeholder="Skriv her, hvis there er noget jeg skal vide før samtalen..."
               ></textarea>

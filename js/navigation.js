@@ -22,16 +22,24 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         window.addEventListener("scroll", () => {
-            if (window.scrollY > 600) {
+            const heroHeight = heroForside.offsetHeight;
+
+            if (window.scrollY > (heroHeight - header.offsetHeight)) {
                 header.classList.add("scrolled");
             } else {
                 header.classList.remove("scrolled");
             }
+
+            //if (window.scrollY > 600) {
+                //header.classList.add("scrolled");
+            //} else {
+              //  header.classList.remove("scrolled");
+            //}
         });
     }
 });
 
-// === Burgermenu funktion ===
+//Burgermenu funktion
 function setupBurgerMenu() {
   const burgerMenu = document.querySelector(".burger_menu");
   const offScreenMenu = document.querySelector(".offscreen_menu");

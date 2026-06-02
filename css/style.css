@@ -86,7 +86,7 @@ section {
 h2 {
   font-family: "lalezar", "inter", sans-serif;
   font-weight: 400;
-  font-size: 4rem;
+  font-size: 3rem;
   font-style: normal;
   line-height: 1;
   color: #000000;
@@ -382,13 +382,13 @@ h3 {
 
 .om_tekst h1 {
   font-size: 3rem;
-  font-family: "Lalezar", cursive;
+  font-family: "Lalezar", 'inter', sans-serif;
   color: var(--quality-color);
 }
 
 .om_tekst h3 {
   font-size: 1.75rem;
-  font-family: "Lalezar", cursive;
+  font-family: "Lalezar", 'inter', sans-serif;
   color: var(--quality-color);
   margin: 2rem 0 0.1rem;
 }
@@ -417,7 +417,7 @@ h3 {
 
 .betingelser_main h1 {
   font-size: 3rem;
-  font-family: "Lalezar", cursive;
+  font-family: "Lalezar", 'inter', sans-serif;
   color: var(--quality-color);
 }
 
