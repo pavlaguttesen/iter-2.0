@@ -1,469 +1,651 @@
-@import url('https://fonts.googleapis.com/css2?family=Lalezar&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lalezar&display=swap");
 
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'inter', sans-serif;
-    text-decoration: none;
-    list-style: none;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "inter", sans-serif;
+  text-decoration: none;
+  list-style: none;
 }
 
-:root{
-    --primary-color: #E8E3D9;
-    --secondary-color: #A59E8C;
-    --quality-color: #3D3D3D;
-    --booking-color:#F11B1B;
-    --background-color: #ffffff;  
-    --dark-color: #000000;
-    --light-color: #ffffff;
-    --primary-button-color: #2B3B2F;
+:root {
+  --primary-color: #e8e3d9;
+  --secondary-color: #a59e8c;
+  --quality-color: #3d3d3d;
+  --booking-color: #f11b1b;
+  --background-color: #ffffff;
+  --dark-color: #000000;
+  --light-color: #ffffff;
+  --primary-button-color: #2b3b2f;
 }
 
-body{
-    background-color: var(--background-color);
+body {
+  background-color: var(--background-color);
 }
 
-body p{
-    line-height: 1.5; 
+body p {
+  line-height: 1.5;
 }
 
-a{
-    color: #000000
+a {
+  color: #000000;
 }
 
-.hero{
-    position: relative;
-    height: 48rem;
-    width: 100%;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(../img/test_img.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-start;
-    flex-direction: column;
-    padding-bottom: 5rem;
+.hero {
+  position: relative;
+  height: 48rem;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+    url(../img/test_img.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-bottom: 5rem;
 }
 
-.hero img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
-
 
 .hero h1 {
-    font-family: 'Lalezar', cursive;
-    font-weight: 400;
-    font-size: 17.5rem;
-    font-style: normal;
-    line-height: 0.6;
-    color: #ffffff;
-    margin-left: 8.7rem;
-    
+  font-family: "lalezar", "inter", sans-serif;
+  font-weight: 400;
+  font-size: 17.5rem;
+  font-style: normal;
+  line-height: 0.6;
+  color: #ffffff;
+  margin-left: 8.7rem;
 }
 
 .hero p {
-    font-family: 'inter', sans-serif;
-    font-weight: 700;
-    font-size: 1.5rem;
-    font-style: normal;
-    margin-left: 9.3rem;
-    letter-spacing: -0.608px;
-    color: #ffffff;
+  font-family: "inter", sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  font-style: normal;
+  margin-left: 9.3rem;
+  letter-spacing: -0.608px;
+  color: #ffffff;
 }
 
 section {
-    padding: 3rem 10%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 5rem;
-    flex-direction: row;
+  padding: 3rem 10%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 5rem;
+  flex-direction: row;
 }
 
 h2 {
-    font-family: 'Lalezar', cursive;
-    font-weight: 400;
-    font-size: 4rem;
-    font-style: normal;
-    line-height: 1;
-    color: #000000;
+  font-family: "lalezar", "inter", sans-serif;
+  font-weight: 400;
+  font-size: 4rem;
+  font-style: normal;
+  line-height: 1;
+  color: #000000;
 }
 
-h3{
-    font-family: 'inter', sans-serif;
-    font-weight: 700;
-    font-size: 2rem;
-    font-style: normal;
-    line-height: normal;
-    color: #000000;
+h3 {
+  font-family: "lalezar", "inter", sans-serif;
+  font-weight: 700;
+  font-size: 2rem;
+  font-style: normal;
+  line-height: normal;
+  color: #000000;
 }
 
-.start_din_rejse_sektion{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 5rem;
-    flex-direction: row;
-    background-color: var(--primary-color);
+.start_din_rejse_sektion {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 5rem;
+  flex-direction: row;
+  background-color: var(--primary-color);
 }
 
 .start_din_rejse_sektion img {
-    background-color: #000000;
-    width: 338px;
-    height: 507px;
-    border-radius: 10px;
+  background-color: #000000;
+  width: 338px;
+  height: 507px;
+  border-radius: 10px;
 }
 
-.rejse_sektion_venstre{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    gap: 2rem;
+.rejse_sektion_venstre {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: 2rem;
 }
 
-.rejse_sektion_hojre{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;   
-    max-width: 710px;
+.rejse_sektion_hojre {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 710px;
 }
-
-
 
 .rejse_sektion_hojre p,
 .portfolio_sektion_hojre p,
 .design_sektion_hojre p,
-.produkter_sektion p{
-    color: #000000;
-    font-size: 1rem;
+.produkter_sektion p {
+  color: #000000;
+  font-size: 1rem;
 }
 
 .rejse_sektion_hojre button,
 .design_sektion_hojre button {
-    background-color: #2B3B2F;
-    border-radius: 15px;
-    padding: 0.7rem 1.5rem;
-    font-family: 'inter', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    font-style: normal;
-    line-height: normal;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    margin: 1.5rem 0 1.5rem;
-    align-items: center;
+  background-color: #2b3b2f;
+  border-radius: 15px;
+  padding: 0.7rem 1.5rem;
+  font-family: "inter", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  margin: 1.5rem 0 1.5rem;
+  align-items: center;
 }
 
-.er_du_i_tvivl_rejse{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    margin-top: 8rem;
+.er_du_i_tvivl_rejse {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-top: 3rem;
 }
 
 .er_du_i_tvivl_rejse h4 {
-    margin-bottom: 1rem;
-    color: #000000;
+  margin-bottom: 1rem;
+  color: #000000;
 }
 
-.portfolio_sektion{
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+.portfolio_sektion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
-.portfolio_sektion_venstre{
-    display: flex;
+.portfolio_sektion_venstre {
+  display: flex;
 }
 
 #portfolio_billede_baggrund {
-    background-color: #000000;
-    width: 912px;
-    height: 556px;
-    object-fit: cover;
-    border-radius: 10px;
+  background-color: #000000;
+  width: 912px;
+  height: 556px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-left: 4rem;
 }
 
-#portfolio_billede_forgrund{
-    background-color: #d1d1d1d1;
-    width: 480px;
-    height: 482px;
-    z-index: 10;
-    object-fit: cover;
-    border-radius: 10px;
-    position: relative;
-    left: -4rem;
-    justify-content: flex-end;
+#portfolio_billede_forgrund {
+  background-color: #d1d1d1d1;
+  width: 480px;
+  height: 482px;
+  z-index: 10;
+  object-fit: cover;
+  border-radius: 10px;
+  position: relative;
+  top: 7rem;
+  left: -6rem;
+  justify-content: flex-end;
 }
 
-.portfolio_sektion_hojre{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
-    max-width: 1050px;
+.portfolio_sektion_hojre {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 1.5rem 0 1.5rem;
 }
 
-.portfolio_sektion_hojre h3{
-    margin-bottom: 1rem;
+.portfolio_sektion_hojre h3 {
+  margin-bottom: 1rem;
+  font-family: "lalezar", "inter", sans-serif;
+  margin-left: 0;
+  padding-left: 0;
 }
 
-.design_sektion{
-    display: flex;
-    flex-direction: row;
-    gap: 8rem;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-    background-color: var(--primary-color);
+.portfolio_sektion_hojre p {
+  width: 65%;
 }
 
-.design_sektion_venstre{
-    display: flex;
-    z-index: 20;
+.design_sektion {
+  display: flex;
+  flex-direction: row;
+  gap: 8rem;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  background-color: var(--primary-color);
+}
+
+.design_sektion_venstre {
+  display: flex;
+  z-index: 20;
 }
 
 .design_sektion_venstre img {
-    background-color: #000000;
-    width: 572px;
-    height: 573px;
-    border-radius: 15px;
-    object-fit: cover;
-    
+  background-color: #000000;
+  width: 572px;
+  height: 573px;
+  border-radius: 15px;
+  object-fit: cover;
 }
 
-.iter_h2{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
+.iter_h2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
-.iter_h2 h2{
-    font-size: 240px;
-    font-weight: 400;
-    font-style: normal;
-    line-height: normal;
+.iter_h2 h2 {
+  font-size: 240px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: normal;
 }
 
 .iter_h2_01 {
-    color: #2B3B2F;
+  color: #2b3b2f;
 }
 
 .iter_h2_02 {
-    color: #E8E3D9;
+  color: #e8e3d9;
 }
 
-.design_sektion_hojre{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
+.design_sektion_hojre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-.design_sektion_hojre h3{
-    margin-bottom: 1.5rem;
+.design_sektion_hojre h3 {
+  margin: 1.5rem 0;
 }
 
-.er_du_i_tvivl_design{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    margin-top: 3rem;
+.er_du_i_tvivl_design {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-top: 2rem;
 }
 
-.h2_h5{
-    display: flex;
-    flex-direction: column;
-    margin-top: -6rem;
-    margin-right: -17rem;
-    z-index: 100;
+.h2_h5 {
+  display: flex;
+  flex-direction: column;
+  margin-top: -6rem;
+  margin-right: -17rem;
+  z-index: 100;
 }
 
-.h2_h5 h5{
-    font-family: 'inter', sans-serif;
-    font-weight: 200;
-    font-size: 1.25rem;
-    font-style: normal;
-    line-height: normal;
-    margin-top: -8rem;
+.h2_h5 h5 {
+  font-family: "inter", sans-serif;
+  font-weight: 200;
+  font-size: 1.25rem;
+  font-style: normal;
+  line-height: normal;
+  margin-top: -8rem;
 }
 
-.produkter_sektion{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    gap: 8rem;
+.produkter_sektion {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  gap: 8rem;
 }
 
-.produkter_sektion_venstre{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    max-width: 740px;
+.produkter_sektion_venstre {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 740px;
 }
 
-.produkter_sektion_venstre h3{
-    margin-bottom: 3rem;
+.produkter_sektion_venstre h3 {
+  margin-bottom: 3rem;
 }
 
-.produkter_sektion_venstre p{
-    margin-bottom: 3rem;
+.produkter_sektion_venstre p {
+  margin-bottom: 3rem;
 }
 
 .produkter_sektion button {
-    background-color: #5B3000;
-    border-radius: 15px;
-    padding: 0.7rem 1.5rem;
-    font-family: 'inter', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    font-style: normal;
-    line-height: normal;
-    color: #ffffff;
-    border: none;
-    cursor: pointer;
-    margin: 1.5rem 0 1.5rem;
-    align-items: center;
+  background-color: #5b3000;
+  border-radius: 15px;
+  padding: 0.7rem 1.5rem;
+  font-family: "inter", sans-serif;
+  font-weight: 700;
+  font-size: 1rem;
+  font-style: normal;
+  line-height: normal;
+  color: #ffffff;
+  border: none;
+  cursor: pointer;
+  margin: 1.5rem 0 1.5rem;
+  align-items: center;
 }
 
-.produkter_sektion_hojre{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: flex-start;
+.produkter_sektion_hojre {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-.produkter_sektion_hojre img{
-    background-color: #000000;
-    width: 382px;
-    height: 574px;
-    border-radius: 10px;
+.produkter_sektion_hojre img {
+  background-color: #000000;
+  width: 382px;
+  height: 574px;
+  border-radius: 10px;
 }
 
-.kvalitet_h2{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-end;
-    z-index: 50;
-    margin-top: -2.8rem;
-    margin-left: 15.5rem;
-    
+.kvalitet_h2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  z-index: 50;
+  margin-top: -2.8rem;
+  margin-left: 15.5rem;
 }
 
-.kvalitet_h2_01{
-    color: #5B3000;
+.kvalitet_h2_01 {
+  color: #5b3000;
 }
 
-.kvalitet_h2_02{
-    color: var(--quality-color);
+.kvalitet_h2_02 {
+  color: var(--quality-color);
 }
 
 /*Om*/
 
-.om_sektion{
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    gap: 8rem;
-    padding: 6rem 0 4rem;
+.om_sektion {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  gap: 8rem;
+  padding: 6rem 0 4rem;
 }
 
-.om_tekst h1{
-    font-size: 3rem;
-    font-family: 'Lalezar', cursive;
-    color: var(--quality-color);
+.om_tekst h1 {
+  font-size: 3rem;
+  font-family: "Lalezar", cursive;
+  color: var(--quality-color);
 }
 
-.om_tekst h3{
-    font-size: 1.75rem;
-    font-family: 'Lalezar', cursive;
-    color: var(--quality-color);
-    margin: 2rem 0 0.1rem;
+.om_tekst h3 {
+  font-size: 1.75rem;
+  font-family: "Lalezar", cursive;
+  color: var(--quality-color);
+  margin: 2rem 0 0.1rem;
 }
 
-.om_tekst p{
-    font-size: 1rem;
-    line-height: 1.5;
-    color: var(--dark-color);
+.om_tekst p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--dark-color);
 }
 
-
-.om_billede img{
-    width: 400px;
-    height: auto;
-    object-fit: cover;
-    border-radius: 0.625rem;
-    display: block;
+.om_billede img {
+  width: 400px;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.625rem;
+  display: block;
 }
 
+/*Betingelser*/
+
+.betingelser_main {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 6rem 0 4rem;
+}
+
+.betingelser_main h1 {
+  font-size: 3rem;
+  font-family: "Lalezar", cursive;
+  color: var(--quality-color);
+}
+
+.betingelser_main p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--dark-color);
+  margin-bottom: 1.5rem;
+}
+
+.handelsbetingelser ul,
+.privatliv ul {
+  list-style-type: disc;
+  margin-bottom: 1.5rem;
+}
+
+.handelsbetingelser li,
+.privatliv li {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+}
+
+.handelsbetingelser {
+  margin-bottom: 6rem;
+}
 
 @media (max-width: 1024px) {
-    .hero{
-       width: 100%;
-       min-width: 100vh;
-    }
+  .hero {
+    width: 100%;
+    max-width: 100%;
+  }
 
-    .hero h1{
-        font-size: 14rem;
-        margin-left: 5rem;
-    }
+  .hero h1 {
+    font-size: 14rem;
+    margin-left: 5rem;
+  }
 
-    .hero p{
-        font-size: 1rem;
-        margin-left: 5rem;
-    }
-    
+  .hero p {
+    font-size: 1rem;
+    margin-left: 5rem;
+  }
 }
 
-@media (max-width: 767px) {
-    .hero{
-       width: 100%;
-       min-width: 100vh;
-    }
+@media (max-width: 769px) {
+  .start_din_rejse_sektion,
+  .portfolio_sektion,
+  .design_sektion,
+  .produkter_sektion {
+    padding: 3rem 5%;
+    flex-direction: column;
+    gap: 2rem;
+  }
 
-    .hero img{
-        width: 100%;
-    }
+  .hero {
+    height: 45vh;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden;
+    padding-bottom: 3rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-direction: column;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 3rem;
+  }
 
-    .start_din_rejse_sektion{
-        flex-direction: column;
-    }
+  .hero h1 {
+    font-size: 6rem;
+    margin-left: 0;
+    line-height: 1;
+  }
 
-    .rejse_sektion_hojre{
-        flex-direction: row;
-    }
+  .hero p {
+    font-size: 1.2rem;
+    margin-left: 0;
+  }
 
-    .er_du_i_tvivl_rejse{
-        flex-direction: column;
-    }
+  .start_din_rejse_sektion {
+    flex-direction: column;
+  }
 
-    /*Om*/
+  .rejse_sektion_venstre {
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+  }
 
-    .om_sektion{
-        flex-direction: column;
-        padding: 6rem 1rem 4rem;
-        gap: 3rem;
-    }
+  .rejse_sektion_hojre h2 {
+    font-size: 2.4rem;
+    margin: 1.5rem 0 1.25rem;
+  }
 
-    .om_billede img{
-        width: 100%;
-    }
+  .rejse_sektion_venstre img {
+    width: 45%;
+    height: auto;
+    aspect-ratio: 2 / 3;
+  }
 
-     .om_tekst h1{
-        font-size: 2.5rem;
-        text-align: left;
-    }
-    
+  .rejse_sektion_hojre {
+    max-width: 100%;
+  }
+
+  .er_du_i_tvivl_rejse {
+    flex-direction: column;
+  }
+
+  .portfolio_sektion {
+    flex-direction: column;
+  }
+
+  .portfolio_sektion_venstre {
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+  }
+
+  #portfolio_billede_baggrund {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    position: static;
+    left: 0;
+    top: 0;
+    margin-left: 0;
+  }
+
+  #portfolio_billede_forgrund {
+    display: none;
+  }
+
+  .portfolio_sektion_hojre {
+    max-width: 100%;
+    line-height: 1;
+  }
+
+  .portfolio_sektion_hojre h3 {
+    font-size: 2rem;
+    margin: 1rem 0 1.25rem;
+  }
+
+  .design_sektion {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .design_sektion_venstre {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .design_sektion_venstre img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+  }
+
+  .h2_h5 {
+    display: none;
+  }
+
+  .design_sektion_hojre {
+    max-width: 100%;
+  }
+
+  .produkter_sektion {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .produkter_sektion_venstre {
+    max-width: 100%;
+  }
+
+  .produkter_sektion_venstre h3 {
+    margin-bottom: 1rem;
+  }
+
+  .produkter_sektion_venstre button {
+    margin: 0;
+  }
+
+  .produkter_sektion_venstre img {
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+  }
+
+  .produkter_sektion_hojre {
+    max-width: 100%;
+    order: -1;
+  }
+
+  .kvalitet_h2 {
+    display: none;
+  }
+
+  /*Om*/
+
+  .om_sektion {
+    flex-direction: column;
+    padding: 6rem 1rem 4rem;
+    gap: 3rem;
+  }
+
+  .om_billede img {
+    width: 100%;
+  }
+
+  .om_tekst h1 {
+    font-size: 2.5rem;
+    text-align: left;
+  }
+
+  /* Betingelser*/
+
+  .betingelser_main {
+    max-width: 100%;
+    padding: 6rem 1.25rem 4rem;
+  }
+
+  .betingelser_main h1 {
+    font-size: 2.5rem;
+  }
+
+  .handelsbetingelser {
+    margin-bottom: 3rem;
+  }
 }
-
-
-
-

@@ -143,7 +143,7 @@ function setupModalEvents(calendar) {
               
               document.querySelector('#modal-form-indhold').style.display = 'block';
               document.querySelector('#modal-succes-indhold').style.display = 'none';
-          }, 3000);
+          }, 6000);
         }
       });
     }
