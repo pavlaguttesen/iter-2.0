@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
       week: "Uge",
       day: "Dag",
       prev: "Forrige måned",
-      next: "Næste måned"
+      next: "Næste måned",
     },
 
     selectAllow: function (selectInfo) {
@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
     },
 
     selectable: true,
-    
+
     select: function (info) {
       valgForDato(info.startStr);
     },
@@ -67,159 +67,198 @@ async function valgForDato(datoStreng) {
     month: "long",
   });
 
-  const {data: optagetMøder, error: tjekFejl} = await _supabase
-  .from("booking")
-  .select("start_time")
-  .eq("start_time", `${datoStreng}%`);
-
-  const optagetKlokkeslaet = optagetMøder ? optagetMøder.map(møde => møde.start_time.split("T")[1].substring(0, 5)) : [];
-
-  standardTid.forEach(tid => {
-    if (optagetKlokkeslaet.includes(tid)) {
-      return;
-    }
-  })
-
   document.querySelector(
     "#modal-valgt-tid"
   ).innerText = `Valgt tid: ${pænDato}`;
 
-  const standardTid = ["09:00", "09:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00"];
+  const { data: optagetMøder, error: tjekFejl } = await _supabase
+    .from("booking")
+    .select("start_time")
+    .eq("start_time", `${datoStreng}%`);
+
+  const optagetKlokkeslaet = optagetMøder
+    ? optagetMøder.map((møde) => møde.start_time.split("T")[1].substring(0, 5))
+    : [];
+
+  const standardTid = [
+    "09:00",
+    "09:30",
+    "10:00",
+    "10:30",
+    "11:00",
+    "11:30",
+    "12:00",
+    "12:30",
+    "13:00",
+    "13:30",
+    "14:00",
+    "14:30",
+    "15:00",
+  ];
+
   const selectElement = document.querySelector("#valgt-klokkeslaet");
   selectElement.innerHTML = "";
 
-  standardTid.forEach(tid => {
+  standardTid.forEach((tid) => {
+    if (optagetKlokkeslaet.includes(tid)) {
+      return;
+    }
+
     const option = document.createElement("option");
     option.value = tid;
     option.text = `Kl. ${tid}`;
     selectElement.appendChild(option);
   });
-  
+
+  if (selectElement.options.length === 0) {
+    const option = document.createElement("option");
+    option.value = "Optaget";
+    option.text = "Ingen ledige tidspunkter";
+    option.disabled = true;
+    selectElement.appendChild(option);
+  }
+
   document.querySelector("#booking-modal").style.display = "flex";
 }
 
 function setupModalEvents(calendar) {
-    const modal = document.querySelector("#booking-modal");
-    const lukKnap = document.querySelector(".luk-knap");
-    const form = document.querySelector("#booking-form");
-  
-    if (lukKnap) {
-      lukKnap.addEventListener("click", () => (modal.style.display = "none"));
+  const modal = document.querySelector("#booking-modal");
+  const lukKnap = document.querySelector(".luk-knap");
+  const form = document.querySelector("#booking-form");
+
+  if (lukKnap) {
+    lukKnap.addEventListener("click", () => (modal.style.display = "none"));
+  }
+
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.style.display = "none";
     }
-  
-    window.addEventListener("click", (e) => {
-      if (e.target === modal) {
-        modal.style.display = "none";
+  });
+
+  if (form) {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const navn = document.querySelector("#kunde-navn").value.trim();
+      const email = document.querySelector("#kunde-email").value;
+      const duration = 30;
+      const beskrivelse = document.querySelector("#kunde-beskrivelse").value;
+
+      const navneDele = navn.split(" ");
+      const fornavn = navneDele[0];
+      const efternavn = navneDele.slice(1).join(" ") || "";
+
+      const valgtTidspunkt = document.querySelector("#valgt-klokkeslaet").value;
+
+      if (valgtTidspunkt === "optaget") {
+        alert("Vælg venligst et ledigt tidspunkt");
+        return;
       }
-    });
-  
-    if (form) {
-      form.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        const navn = document.querySelector("#kunde-navn").value.trim();
-        const email = document.querySelector("#kunde-email").value;
-        const duration = 30;
-        const beskrivelse = document.querySelector("#kunde-beskrivelse").value;
-  
-        const navneDele = navn.split(" ");
-        const fornavn = navneDele[0];
-        const efternavn = navneDele.slice(1).join(" ") || "";
 
-        const valgtTidspunkt = document.querySelector("#valgt-klokkeslaet").value;
+      const fuldDatoTid = `${gemtDatoStreng}T${valgtTidspunkt}:00`;
 
-        if (valgtTidspunkt === "optager") {
-          alert("Vælg venligst et ledigt tidspunkt");
-          return;
-        }
+      const succes = await opretBookingSupabase(
+        fornavn,
+        efternavn,
+        email,
+        fuldDatoTid,
+        duration,
+        beskrivelse
+      );
 
-        const fuldDatoTid = `${gemtDatoStreng}T${valgtTidspunkt}:00`; 
-  
-        
-        const succes = await opretBookingSupabase(
-          fornavn,
-          efternavn,
-          email,
-          fuldDatoTid,
-          duration,
-          beskrivelse
-        );
-  
-        
-        if (succes) {
-          document.querySelector('#modal-form-indhold').style.display = 'none';
-          
-          document.querySelector('#succes-hilsen').innerText = `Tak ${fornavn}. Du modtager om et øjeblik en bekræftelsesmail.`;
-          document.querySelector('#modal-succes-indhold').style.display = 'block';
-          
-          form.reset(); 
-          calendar.refetchEvents(); 
-  
-          setTimeout(() => {
-              modal.style.display = 'none';
-              document.querySelector('#modal-form-indhold').style.display = 'block';
-              document.querySelector('#modal-succes-indhold').style.display = 'none';
+      if (succes) {
+        const mailDato = new Date(fuldDatoTid).toLocaleDateString("da-DK", {
+          weekday: "long",
+          day: "numeric",
+          month: "long",
+          hour: "2-digit",
+          minute: "2-digit",
+        });
 
-              valgForDato(gemtDatoStreng);
-          }, 5000);
-        }
-      });
-    }
-  }
-  
-  async function hentBookingerFraSupabase() {
-    const { data, error } = await _supabase
-      .from("booking")
-      .select("start_time");
-    if (error) {
-      console.log("Der skete en fejl:", error.message);
-      return [];
-    }
-    return data.map((booking) => {
-        const kunDato = booking.start_time.split("T")[0];
-      return {
-        title: "Booket",
-        start: kunDato,
-        allDay: true,
-        display: "background",
-        color: "#ffcccc",
-      };
+        const emailParametre = {
+          kunde_navn: navn,
+          kunde_email: email,
+          dato_tid: mailDato,
+          beskrivelse: beskrivelse,
+        };
+
+        emailjs
+          .send("service_snedker", "template_gjotpg9", emailParametre)
+          .then(() => console.log("Bekræftelse er sendt til kunden"))
+          .catch((fejl) => console.log("Der skete en fejl i kundmail:", fejl));
+
+        emailjs
+          .send("service_snedker", "template_w2ok64w", emailParametre)
+          .then(() => console.log("Notifikation er sendt til admin"))
+          .catch((fejl) => console.log("Der skete en fejl i adminmail:", fejl));
+
+        document.querySelector("#modal-form-indhold").style.display = "none";
+        document.querySelector(
+          "#succes-hilsen"
+        ).innerText = `Tak ${fornavn}. Du modtager om et øjeblik en bekræftelsesmail`;
+        document.querySelector("modal-succes-indhold").style.display = "block";
+
+        valgForDato(gemtDatoStreng);
+      }
+      0.4;
     });
   }
-  
-  async function opretBookingSupabase(
-    fornavn,
-    efternavn,
-    email,
-    startTid,
-    valgtDuration,
-    beskrivelse
-  ) {
-    
-    const { data: eksisterendeMøder, error: tjekFejl } = await _supabase
-      .from('booking')
-      .select('start_time')
-      .eq('start_time', startTid);
-  
-    if (eksisterendeMøder && eksisterendeMøder.length > 0) {
-      alert('Beklager! Denne tid er lige blevet snuppet af en anden. Vælg venligst et andet tidspunkt i kalenderen.');
-      return false;
-    }
-  
-    const { data, error } = await _supabase.from("booking").insert([
-      {
-        book_firstname: fornavn,
-        book_lastname: efternavn,
-        book_email: email,
-        start_time: startTid,
-        duration: valgtDuration,
-        description: beskrivelse,
-      },
-    ]);
-  
-    if (error) {
-      console.log("Der skete en fejl:", error.message);
-      alert("Der skete en fejl under bookingen - prøv venligst igen.");
-      return false;
-    }
-  
-    return true;}
+}
+
+async function hentBookingerFraSupabase() {
+  const { data, error } = await _supabase.from("booking").select("start_time");
+  if (error) {
+    console.log("Der skete en fejl:", error.message);
+    return [];
+  }
+  return data.map((booking) => {
+    const kunDato = booking.start_time.split("T")[0].trim(0);
+
+    return {
+      title: "Booket",
+      start: kunDato,
+      allDay: true,
+      display: "background",
+    };
+  });
+}
+
+async function opretBookingSupabase(
+  fornavn,
+  efternavn,
+  email,
+  startTid,
+  valgtDuration,
+  beskrivelse
+) {
+  const { data: eksisterendeMøder, error: tjekFejl } = await _supabase
+    .from("booking")
+    .select("start_time")
+    .eq("start_time", startTid);
+
+  if (eksisterendeMøder && eksisterendeMøder.length > 0) {
+    alert(
+      "Beklager! Denne tid er lige blevet snuppet af en anden. Vælg venligst et andet tidspunkt i kalenderen."
+    );
+    return false;
+  }
+
+  const { data, error } = await _supabase.from("booking").insert([
+    {
+      book_firstname: fornavn,
+      book_lastname: efternavn,
+      book_email: email,
+      start_time: startTid,
+      duration: valgtDuration,
+      description: beskrivelse,
+    },
+  ]);
+
+  if (error) {
+    console.log("Der skete en fejl:", error.message);
+    alert("Der skete en fejl under bookingen - prøv venligst igen.");
+    return false;
+  }
+
+  return true;
+}

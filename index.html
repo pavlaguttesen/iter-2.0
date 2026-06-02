@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="./img/logo.svg" />
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <!-- TrustBox script -->
+    <script
+      type="text/javascript"
+      src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js"
+      async
+    ></script>
+    <!-- End TrustBox script -->
     <link rel="stylesheet" href="./css/style.css" />
     <link rel="stylesheet" href="./css/navigation.css" />
     <link rel="stylesheet" href="./css/footer.css" />
@@ -45,8 +52,16 @@
       </section>
       <section class="portfolio_sektion">
         <div class="portfolio_sektion_venstre">
-          <img id="portfolio_billede_baggrund" src="./img/terasse_langt.jpg" alt="" />
-          <img id="portfolio_billede_forgrund" src="./img/taburet-med-uld.jpeg" alt="" />
+          <img
+            id="portfolio_billede_baggrund"
+            src="./img/terasse_langt.jpg"
+            alt=""
+          />
+          <img
+            id="portfolio_billede_forgrund"
+            src="./img/taburet-med-uld.jpeg"
+            alt=""
+          />
         </div>
         <div class="portfolio_sektion_hojre">
           <h3>Møbler og løsninger skabt til dit hjem</h3>
@@ -96,14 +111,15 @@
           <h3>Håndværk med retning</h3>
           <p>
             Hos Iter handler det ikke kun om at bygge møbler, men om at skabe en
-            proces hvor dine idéer bliver til noget fysisk og personligt. <br> Hvert
-            projekt er en rejse fra tanke til virkelighed hvor design,
+            proces hvor dine idéer bliver til noget fysisk og personligt. <br />
+            Hvert projekt er en rejse fra tanke til virkelighed hvor design,
             materialer og håndværk arbejder sammen for at skabe et færdigt
-            resultat med kvalitet og funktion i fokus. <br> <br> Udover speciallavede
-            møbler tilbyder jeg også andre produkter, som kan købes direkte her
-            på hjemmesiden. Disse produkter er skabt med samme fokus på
-            kvalitet, materialer og håndværk, men er klar til brug uden
-            tilpasning.
+            resultat med kvalitet og funktion i fokus. <br />
+            <br />
+            Udover speciallavede møbler tilbyder jeg også andre produkter, som
+            kan købes direkte her på hjemmesiden. Disse produkter er skabt med
+            samme fokus på kvalitet, materialer og håndværk, men er klar til
+            brug uden tilpasning.
           </p>
           <a href="produkter.html"><button>Se produkter</button></a>
         </div>
@@ -116,7 +132,24 @@
         </div>
       </section>
       <section class="anmeldelser_sektion">
-        <h2>Trustpilot, mangler adgang. Snedkeren var ikke i til stede og skal kontakte ham</h2>
+        <!-- TrustBox widget - Review Collector -->
+        <div
+          class="trustpilot-widget"
+          data-locale="da-DK"
+          data-template-id="56278e9abfbbba0bdcd568bc"
+          data-businessunit-id="6a1f37103d4303165a630e8e"
+          data-style-height="52px"
+          data-style-width="100%"
+          data-token="792cec0a-b50b-4f78-8836-2d3d1da5aa43"
+        >
+          <a
+            href="https://dk.trustpilot.com/review/itersnedkeri.dk"
+            target="_blank"
+            rel="noopener"
+            >Trustpilot</a
+          >
+        </div>
+        <!-- End TrustBox widget -->
       </section>
     </main>
 

@@ -20,6 +20,7 @@
   --primary-button-color: #2b3b2f;
   --button-color-secondary: #5b3000;
   --no-color: #f0ede6;
+  --secondary-calendar-color: #d7d4cc;
 }
 
 .booking_container {
@@ -84,13 +85,6 @@
     gap: 0.5rem;
 }
 
-.fc-toolbar-chunk{
-}
-
-.fc-toolbar-title{
-    font-size: 1.5rem;
-}
-
 .fc .fc-button-primary {
   background-color: var(--primary-button-color);
   border: none;
@@ -116,6 +110,11 @@
 .fc td,
 .fc th {
   border-color: var(--quality-color);
+}
+
+.fc-day-tue,
+.fc-day-thu {
+    background-color: var(--secondary-calendar-color);
 }
 
 .fc-daygrid-day-number{
@@ -187,9 +186,15 @@
     color: var(--quality-color);
     margin-bottom: 1.5rem;
     font-weight: 600;
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: var(--secondary-calendar-color);
     padding: 0.5rem 0.75rem;
     border-radius: 0.25rem;
+}
+
+#valgt-klokkeslaet {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    margin-top: 0.2rem;
 }
 
 .luk-knap{
@@ -275,12 +280,25 @@
 
 @media (max-width: 769px) {
     .booking_container {
+        width: 100%;
       grid-template-columns: 1fr;
       gap: 3rem;
-      padding: 6rem 1rem 2rem;
+      padding: 7rem 1rem 2rem;
     }
 
     .booking_sidebar {
         order: -1;
     }
+
+    .booking_sidebar h1 {
+        font-size: 2.2rem;
+        padding-bottom: 1.5rem;
+    }
+
+    .fc .fc-button-primary {
+        font-size: 0.6rem;
+        margin-bottom: 0.5rem;
+    }
+
+    
 }

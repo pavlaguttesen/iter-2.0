@@ -266,5 +266,31 @@ header.nav-underside .logo{
 
     .book_mode a:visited{
         color: var(--light-color) !important;
-    }   
+    } 
+
+
+    
+    body:has(.hero) header:not(.scrolled) a{
+        color: var(--dark-color);
+    }
+    
+    body:has(.hero) header:not(.scrolled) .logo{
+        opacity: 0;
+        visibility: hidden;
+    }
+    
+    body:has(.hero) header:not(.scrolled) .navigation_hojre{
+        background-color: var(--light-color);
+    }
+    
+    body:has(.hero) header:not(.scrolled) .navigation_hojre a{
+        color: #5B3000 !important;
+    }
+
+    body:has(.hero) header:not(.scrolled) .burger_menu span{
+        background-color: var(--light-color);
+    }
+
+    
+    
 }

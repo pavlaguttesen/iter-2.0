@@ -301,7 +301,7 @@ h3 {
 .produkter_sektion {
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: center;
   padding-top: 3rem;
   padding-bottom: 3rem;
   gap: 8rem;
@@ -349,10 +349,10 @@ h3 {
   background-color: #000000;
   width: 382px;
   height: 574px;
-  border-radius: 10px;
+  border-radius: 0.625rem ;
 }
 
-.kvalitet_h2 {
+.kvalitet_h2{
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -363,10 +363,12 @@ h3 {
 
 .kvalitet_h2_01 {
   color: #5b3000;
+  font-size: 4rem !important;
 }
 
 .kvalitet_h2_02 {
   color: var(--quality-color);
+  font-size: 4rem !important;
 }
 
 /*Om*/
