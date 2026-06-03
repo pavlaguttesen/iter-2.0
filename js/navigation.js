@@ -29,12 +29,6 @@ document.addEventListener("DOMContentLoaded", () => {
             } else {
                 header.classList.remove("scrolled");
             }
-
-            //if (window.scrollY > 600) {
-                //header.classList.add("scrolled");
-            //} else {
-              //  header.classList.remove("scrolled");
-            //}
         });
     }
 });

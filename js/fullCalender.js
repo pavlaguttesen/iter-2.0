@@ -178,17 +178,23 @@ function setupModalEvents(calendar) {
           minute: "2-digit",
         });
 
-        const emailParametre = {
+        const kundeParametre = {
           kunde_navn: navn,
           kunde_email: email,
-          dato_tid: mailDato,
-          beskrivelse: beskrivelse,
+          mail_emne: "Mødebekræftelse - Iter",
+          mail_overskrift: "Dit uforpligtende møde er bekræftet",
+          mail_brødtekst: "Jeg glæder mig til at møde dig og have en snak om dit projekt. \n\nTidspunkt: ${mailDato}. \n\nMødet foregår fysisk på værkstedet. \n\nHvis du har spørgsmål, kan du kontakte mig på email eller telefon.",
         };
 
-        emailjs
-          .send("service_snedker", "template_w2ok64w", emailParametre)
-          .then(() => console.log("Notifikation er sendt til admin"))
-          .catch((fejl) => console.log("Der skete en fejl i adminmail:", fejl));
+        emailjs.send("service_snedker", "template_gjotpg9", kundeParametre);
+
+        const adminParametre = {
+            admin_emne: `NY BOOKING: Møde aftalt - Iter`,
+            admin_overskrift: `En kunde har booket en tid i din kalender.`,
+            admin_brødtekst: `Kunde: ${fornavn} ${efternavn} \n\nE-mail: ${email} \n\nTidspunkt: ${mailDato} \n\nKundens beskrivelse: ${beskrivelse}`,
+        };
+
+        emailjs.send("service_snedker", "template_w2ok64w", adminParametre);
 
         document.querySelector("#modal-form-indhold").style.display = "none";
         document.querySelector(

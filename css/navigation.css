@@ -291,6 +291,10 @@ header.nav-underside .logo{
         background-color: var(--light-color);
     }
 
+    body:has(.hero) header:not(.scrolled) .burger_menu.active span{
+        background-color: var(--dark-color);
+    }
+
     
     
 }

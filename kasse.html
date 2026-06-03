@@ -3,9 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "NR_Arc8dzjgv5aCEy",
+      });
+   })();
+</script>
+    <link rel="stylesheet" href="./css/kasse.css">
+    <title>Kasse</title>
 </head>
 <body>
-    
+
+    <div id="navigation"></div>
+
+    <main class="kasse_container">
+
+        <section class="kasse_sektion">
+            <h1>Kontaktoplysninger</h1>
+            <form id="kasse_form">
+                <input type="text" id="customer-firstname" placeholder="Fornavn">
+                <input type="text" id="customer-lastname" placeholder="Efternavn">
+                <input type="email" id="customer-email" placeholder="Email">
+                <input type="tel" id="customer-tlf" placeholder="Telefonnummer">
+                <input type="text" id="customer-address" placeholder="Adresse">
+                <input type="text" id="customer-postal" placeholder="Postnummer">
+                <input type="text" id="customer-city" placeholder="By">
+                
+                <button type="submit">Betal med MobilePay</button>
+            </form>
+        </section>
+        <section class="produkt-opsamling">
+            <div class="produkt_kort">
+                <img id="product_img" src="" alt="Produktbillede">
+                <h3 id="product_title">Henter data...</h3>
+            </div>
+            <div class="pris_kort">
+                <p>Subtotal: <span id="subtotal">0</span> kr.</p>
+                <p>Levering: <span id="levering">Gratis levering</span></p>
+                <hr>
+                <p><strong>Total pris: <span id="total_pris">0</span>kr.</strong></p>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer"></div>
 </body>
+
+<script type="module" src="./js/kasse.js"></script>
+<script type="module" src="./js/navigation.js"></script>
+<script type="module" src="./js/footer.js"></script>
 </html>

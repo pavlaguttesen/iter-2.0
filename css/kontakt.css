@@ -71,7 +71,9 @@
 }
 
 #kunde-besked{
+    resize: none;
     height: 200px;
+    justify-content: baseline;
 
 }
 

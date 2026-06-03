@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Lalezar&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "inter", sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root {
+    --primary-color: #e8e3d9;
+    --secondary-color: #a59e8c;
+    --quality-color: #3d3d3d;
+    --booking-color: #f11b1b;
+    --background-color: #ffffff;
+    --dark-color: #000000;
+    --light-color: #ffffff;
+    --primary-button-color: #2b3b2f;
+}
+
+.kasse_container {
+    padding-top: 6rem;
+    padding-bottom: 3rem;
+    margin: 0 auto;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+}
+
+.kasse_sektion{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem
+}
+
+#kasse-form{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+#produkt_img{
+    
+}
