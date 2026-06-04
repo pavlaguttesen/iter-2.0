@@ -38,6 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     selectable: true,
 
+    selectLongPressDelay: 0,
+
     select: function (info) {
       valgForDato(info.startStr);
     },
@@ -181,9 +183,9 @@ function setupModalEvents(calendar) {
         const kundeParametre = {
           kunde_navn: navn,
           kunde_email: email,
-          mail_emne: "Mødebekræftelse - Iter",
-          mail_overskrift: "Dit uforpligtende møde er bekræftet",
-          mail_brodtekst: "Jeg glæder mig til at møde dig og have en snak om dit projekt. \n\nTidspunkt: ${mailDato}. \n\nMødet foregår fysisk på værkstedet. \n\nHvis du har spørgsmål, kan du kontakte mig på email eller telefon.",
+          mail_emne: `Mødebekræftelse - Iter`,
+          mail_overskrift: `Dit uforpligtende møde er bekræftet`,
+          mail_brodtekst: `Jeg glæder mig til at møde dig og have en snak om dit projekt. \n\nTidspunkt: ${mailDato}. \n\nMødet foregår fysisk på værkstedet. \n\nHvis du har spørgsmål, kan du kontakte mig på email eller telefon.`,
         };
 
         await emailjs.send("service_snedker", "template_gjotpg9", kundeParametre);

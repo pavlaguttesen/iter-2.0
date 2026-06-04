@@ -63,3 +63,7 @@
 .tilbage_knap:hover{
     background-color: var(--quality-color);
 }
+
+.tilbage_knap:visited{
+    color: var(--light-color);
+}
