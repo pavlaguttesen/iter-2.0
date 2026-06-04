@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Lalezar&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "inter", sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+
+:root {
+    --primary-color: #e8e3d9;
+    --secondary-color: #a59e8c;
+    --quality-color: #3d3d3d;
+    --booking-color: #f11b1b;
+    --background-color: #ffffff;
+    --dark-color: #000000;
+    --light-color: #ffffff;
+    --primary-button-color: #2b3b2f;
+}
+
+.bekraeftelse_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+}
+
+.bekraeftelse_indhold{
+    text-align: left;
+    max-width: 900px;
+    padding: 3rem;
+}
+
+
+#bekraeftelse-overskrift{
+    font-size: 3rem;
+    font-family: "Lalezar", "inter", sans-serif;
+    color: var(--quality-color);
+    margin-bottom: 2.5rem;
+}
+
+#bekraeftelse-tekst{
+    font-size: 1rem;
+    line-height: 1.5;
+    color: var(--dark-color);
+    white-space: pre-line;
+    margin-bottom: 2.5rem;
+}
+
+.tilbage_knap{
+    display: inline-block;
+    background-color: var(--primary-button-color);
+    color: var(--light-color);
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.tilbage_knap:hover{
+    background-color: var(--quality-color);
+}

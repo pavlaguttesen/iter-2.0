@@ -52,7 +52,7 @@ if (designMobel) {
         const kortOrdreNummer = fuldtId.substring(0, 5).toUpperCase();
 
         const kundeParametre = {
-          kunde_navn: `${custom_firstname} ${custom_lastname}`,
+          kunde_navn: `${orderData.custom_firstname} ${orderData.custom_lastname}`,
           kunde_email: orderData.custom_email,
           mail_emne: `Forespørgsel modtaget #${kortOrdreNummer} - Iter`,
           mail_overskrift: `Tak for din forespørgsel på et specialmøbel #${kortOrdreNummer}`,
