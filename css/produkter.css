@@ -22,7 +22,7 @@
     font-family: "Lalezar", 'inter', sans-serif;
     font-size: 4rem;
     font-weight: 400;
-    padding: 1.5rem 0;
+    padding-bottom: 1.5rem;
 }
 
 .eget_mobel_sektion button{
@@ -39,8 +39,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 4rem;
-    padding-bottom: 2rem;
+    padding: 2rem 0 4rem;
 }
 
 .produkter_sektion{
@@ -252,7 +251,7 @@
 @media (max-width: 769px) {
 
     .eget_mobel_sektion{
-        padding: 5rem 2rem 2rem;
+        padding: 2rem;
     }
 
     .eget_mobel_sektion h1{
@@ -267,6 +266,7 @@
     }
     .produkt_grid{
         grid-template-columns: 1fr;
+        gap: 4rem;
     }
 
     .single_produkt_container {

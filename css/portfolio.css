@@ -36,7 +36,6 @@
   background-color: var(--primary-color);
   justify-content: space-between;
   width: 100%;
-  padding-top: 4.5rem;
 }
 
 .portfolio_sektion h1 {
@@ -212,7 +211,7 @@
   .portfolio_sektion {
     flex-direction: column;
     gap: 2rem;
-    padding: 7rem 1rem 2rem;
+    padding: 4rem 1rem 2rem;
   }
 
   .portfolio_sektion h1 {

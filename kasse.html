@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./img/nyt_logo_sort.svg" />
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
@@ -26,13 +27,13 @@
         <section class="kasse_sektion">
             <h1>Kontaktoplysninger</h1>
             <form id="kasse_form">
-                <input type="text" id="customer-firstname" placeholder="Fornavn">
-                <input type="text" id="customer-lastname" placeholder="Efternavn">
-                <input type="email" id="customer-email" placeholder="Email">
-                <input type="tel" id="customer-tlf" placeholder="Telefonnummer">
-                <input type="text" id="customer-address" placeholder="Adresse">
-                <input type="text" id="customer-postal" placeholder="Postnummer">
-                <input type="text" id="customer-city" placeholder="By">
+                <input type="text" id="customer-firstname" placeholder="Fornavn" required>
+                <input type="text" id="customer-lastname" placeholder="Efternavn" required>
+                <input type="email" id="customer-email" placeholder="Email" required>
+                <input type="tel" id="customer-tlf" placeholder="Telefonnummer" required>
+                <input type="text" id="customer-address" placeholder="Adresse" required>
+                <input type="text" id="customer-postal" placeholder="Postnummer" required>
+                <input type="text" id="customer-city" placeholder="By"  required>
                 
                 <button type="submit">Betal med MobilePay</button>
             </form>

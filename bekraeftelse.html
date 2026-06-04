@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <link rel="icon" type="image/x-icon" href="./img/nyt_logo_sort.svg" />
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script type="text/javascript"
         src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
@@ -15,7 +15,7 @@
       });
    })();
 </script>
-    <link rel="stylesheet" href="./css/kasse.css">
+    <link rel="stylesheet" href="./css/style.css">
     <title>Bekræftelse</title>
 </head>
 <body>
@@ -23,14 +23,17 @@
     <div id="navigation"></div>
 
     <main class="bekraeftelse_container">
-        
+        <div class="bekraeftelse_indhold">
+            <h1 id="bekraeftelse-overskrift">Henter bekræftelse...</h1>
+            <p id="bekraeftelse-tekst"></p>
+            <a href="./index.html" class="tilbage_knap">Tilbage til forsiden</a>
+        </div>
     </main>
 
     <div id="footer"></div>
 
-
-    
 </body>
+<script src="./js/bekraeftelse.js"></script>
 <script src="./js/navigation.js"></script>
 <script src="./js/footer.js"></script>
 </html>

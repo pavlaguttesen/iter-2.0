@@ -3,7 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./img/nyt_logo_sort.svg" />
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "NR_Arc8dzjgv5aCEy",
+        });
+      })();
+    </script>
     <link rel="stylesheet" href="./css/kontakt.css" />
     <title>Kontakt</title>
   </head>
@@ -31,7 +43,12 @@
       <section class="kontakt_form">
         <form id="booking_form">
           <div class="form_group">
-            <input type="text" id="kunde-fornavn" required placeholder="Fornavn" />
+            <input
+              type="text"
+              id="kunde-fornavn"
+              required
+              placeholder="Fornavn"
+            />
           </div>
 
           <div class="form_group">
@@ -44,12 +61,7 @@
           </div>
 
           <div class="form_group">
-            <input
-              type="email"
-              id="kunde-email"
-              required
-              placeholder="Email"
-            />
+            <input type="email" id="kunde-email" required placeholder="Email" />
           </div>
 
           <div class="form_group">
@@ -62,17 +74,24 @@
           </div>
 
           <div class="form_group">
-            <input
+            <textarea
               type="text"
               id="kunde-besked"
               required
               placeholder="Besked"
-            />
+            ></textarea>
           </div>
 
           <button type="submit" class="kontakt_button">Send besked</button>
         </form>
       </section>
+      <div class="kontakt_modal" id="kontakt_modal">
+        <span class="luk-knap">&times</span>
+        <div class="modal_indhold">
+          <h2>Tak for dit spørgsmål</h2>
+          <p>Din besked er nu modtaget og vil besvare den hurtigst muligt.</p>
+        </div>
+      </div>
     </main>
 
     <div id="footer"></div>

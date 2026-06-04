@@ -50,17 +50,19 @@ if (form) {
         const postnr = document.querySelector("#customer-postal").value;
         const by = document.querySelector("#customer-city").value;
 
+        const valideretProduktId = parseInt(produktId) || null;
+
         const {data: nyOrdre, error} = await _supabase
         .from("orders")
         .insert ([
             {
-            productId: parseInt(produktId),
+            product_id: valideretProduktId,
             customer_firstname: fornavn,
             customer_lastname: efternavn,
             customer_email: email,
             customer_tlf: tlf,
             customer_address: adresse,
-            customer_postal: parseInt(postnr),
+            customer_postal: parseInt(postnr) || 0,
             customer_city: by,
             total_price: produktPris
             
@@ -68,9 +70,9 @@ if (form) {
         .select()
         .single();
 
-        if (ordreFejl) {
-            console.error("Kunne ikke oprette ordre:", ordreFejl.message);
-            alert("Der skete en fejl under behandlingen af dit køb.")
+        if (error) {
+            console.error("Kunne ikke oprette ordre:", error.message);
+            alert("Der skete en fejl under behandlingen af dit køb:" + error.message);
             return;
         }
 
@@ -82,20 +84,20 @@ if (form) {
                 kunde_email: email,
                 mail_emne: `Ordrebekræftelse #${ordrenummer} - Iter`,
                 mail_overskrift: `Mange tak for din ordre #${ordrenummer}`,
-                mail_brødtekst: `Vi har registreret dit af ${produktNavn}. \nTotal pris: ${produktPris} kr. \n\nEstimeret leveringstid er 2-4 dage. \n\nHvis du har spørgsmål, kan du kontakte mig på E-mail: iter.snedker@gmail.com. \n\nTak for din besøg og velkommen igen. \n\nHilsen \nIter`
+                mail_brodtekst: `Vi har registreret dit af ${produktNavn}. \nTotal pris: ${produktPris} kr. \n\nEstimeret leveringstid er 2-4 dage. \n\nHvis du har spørgsmål, kan du kontakte mig på E-mail: iter.snedker@gmail.com. \n\nTak for din besøg og velkommen igen. \n\nHilsen \nIter`
             };
 
-            emailjs.send("service_snedker", "template_gjotpg9", kundeParametre);
+            await emailjs.send("service_snedker", "template_gjotpg9", kundeParametre);
 
             const adminParametre = {
                 admin_emne: `NY ORDRE MODTAGER - Iter`,
                 admin_overskrift: `Ny ordre modtaget.`,
-                admin_brødtekst: `Ordrenummer: #${ordrenummer} \nKunde: ${fornavn} ${efternavn} \nE-mail: ${email} \nTlf: ${tlf} \nAdresse: ${adresse} \nPostnr: ${postnr} \nBy: ${by}`
+                admin_brodtekst: `Ordrenummer: #${ordrenummer} \nKunde: ${fornavn} ${efternavn} \nE-mail: ${email} \nTlf: ${tlf} \nAdresse: ${adresse} \nPostnr: ${postnr} \nBy: ${by}`
             };
 
-            emailjs.send("service_snedker", "template_w2ok64w", adminParametre);
+            await emailjs.send("service_snedker", "template_w2ok64w", adminParametre);
 
-            window.location.href = `bekraeftelse.html?ordre=${ordenummer}`;
+            window.location.href = `bekraeftelse.html?ordre=${ordrenummer}`;
         }
     })
 }

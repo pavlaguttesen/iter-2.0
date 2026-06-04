@@ -18,6 +18,11 @@
     --quality-color: #3D3D3D;
 }
 
+#navigation {
+    display: block;
+    min-height: 4.6rem;
+}
+
 header {
     background-color: var(--primary-color);
     display: flex;
@@ -87,6 +92,14 @@ header .logo img {
 }
 
 /*Scroll funktion til logo*/
+
+body:has(.hero)  #navigation{
+    position: absolute;
+    top: 0 ;
+    left: 0 ;
+    z-index: 100;
+    background-color: transparent;
+}
 
 body:has(.hero) header:not(.scrolled) {
     background-color: transparent;

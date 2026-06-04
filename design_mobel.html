@@ -3,7 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/x-icon" href="./img/nyt_logo_sort.svg" />
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "NR_Arc8dzjgv5aCEy",
+        });
+      })();
+    </script>
+
     <link rel="stylesheet" href="./css/design_mobel.css" />
     <title>Design dit møbel</title>
   </head>
@@ -140,7 +153,7 @@
           </div>
 
           <div class="valg_kort">
-            <input type="radio" id="trae_Bog" name="tree_type" value="Bøg" />
+            <input type="radio" id="trae_Bog" name="tree_type" value="Bog" />
             <label for="trae_bog" class="ikon_label"
               ><img src="./img/bog.svg" alt="bøg" /> <span>Bøg</span></label
             >

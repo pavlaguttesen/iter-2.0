@@ -183,18 +183,18 @@ function setupModalEvents(calendar) {
           kunde_email: email,
           mail_emne: "Mødebekræftelse - Iter",
           mail_overskrift: "Dit uforpligtende møde er bekræftet",
-          mail_brødtekst: "Jeg glæder mig til at møde dig og have en snak om dit projekt. \n\nTidspunkt: ${mailDato}. \n\nMødet foregår fysisk på værkstedet. \n\nHvis du har spørgsmål, kan du kontakte mig på email eller telefon.",
+          mail_brodtekst: "Jeg glæder mig til at møde dig og have en snak om dit projekt. \n\nTidspunkt: ${mailDato}. \n\nMødet foregår fysisk på værkstedet. \n\nHvis du har spørgsmål, kan du kontakte mig på email eller telefon.",
         };
 
-        emailjs.send("service_snedker", "template_gjotpg9", kundeParametre);
+        await emailjs.send("service_snedker", "template_gjotpg9", kundeParametre);
 
         const adminParametre = {
             admin_emne: `NY BOOKING: Møde aftalt - Iter`,
             admin_overskrift: `En kunde har booket en tid i din kalender.`,
-            admin_brødtekst: `Kunde: ${fornavn} ${efternavn} \n\nE-mail: ${email} \n\nTidspunkt: ${mailDato} \n\nKundens beskrivelse: ${beskrivelse}`,
+            admin_brodtekst: `Kunde: ${fornavn} ${efternavn} \n\nE-mail: ${email} \n\nTidspunkt: ${mailDato} \n\nKundens beskrivelse: ${beskrivelse}`,
         };
 
-        emailjs.send("service_snedker", "template_w2ok64w", adminParametre);
+        await emailjs.send("service_snedker", "template_w2ok64w", adminParametre);
 
         document.querySelector("#modal-form-indhold").style.display = "none";
         document.querySelector(
