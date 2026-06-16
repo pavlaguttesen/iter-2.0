@@ -112,9 +112,13 @@
   border-color: var(--quality-color);
 }
 
-.fc-day-tue,
+/*.fc-day-tue,
 .fc-day-thu {
     background-color: var(--secondary-calendar-color);
+}*/
+
+.fc-day-future:hover {
+  background-color: #9CAF88;
 }
 
 .fc-daygrid-day-number{

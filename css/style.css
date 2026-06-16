@@ -383,7 +383,7 @@ h3 {
   display: flex;
   flex-direction: row;
   gap: 8rem;
-  padding: 6rem 0 4rem;
+  padding: 2rem 0 4rem;
 }
 
 .om_tekst h1 {
@@ -418,7 +418,7 @@ h3 {
 .betingelser_main {
   max-width: 800px;
   margin: 0 auto;
-  padding: 6rem 0 4rem;
+  padding: 2rem 0 4rem;
 }
 
 .betingelser_main h1 {
