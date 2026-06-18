@@ -66,7 +66,7 @@ const ekstraBilleder = [
 
 const venstrePil = document.querySelector(".pil.prev");
 const hojrePil = document.querySelector(".pil.next");
-const alleThumbnails = document.querySelectorAll(".thumbnail_img");
+
 const mainBillede = document.getElementById("main_billede");
 
 let indexBillede = 0;
@@ -102,6 +102,7 @@ ekstraBilleder.forEach(ImageUrl => {
     }
 });
 
+const alleThumbnails = document.querySelectorAll(".thumbnail_img");
 
 alleThumbnails.forEach(thumbnail => {
     thumbnail.addEventListener("click", () => {
